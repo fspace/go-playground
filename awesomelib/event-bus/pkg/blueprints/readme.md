@@ -1,0 +1,1 @@
+[Modular Applications with Blueprints](https://flask.palletsprojects.com/en/1.0.x/blueprints/)
