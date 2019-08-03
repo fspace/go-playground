@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{{/* this is commont for go template */}}
+
+<div>
+   <ul>
+       <li>
+           Method: {{.Method}}
+
+       </li>
+       <li>
+           Path: {{.URL.Path}}
+
+       </li>
+       <li>
+           Header: {{.Header}}
+       </li>
+       <li>
+           Header user-agent: {{.Header.Get "User-Agent"}}
+       </li>
+   </ul>
+</div>
+
+
+</body>
+</html>
