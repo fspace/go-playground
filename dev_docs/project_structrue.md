@@ -10,6 +10,8 @@ https://www.youtube.com/watch?v=oL6JBUk6tj0
 
 https://github.com/Mindinventory/Golang-Project-Structure        可以的 https://www.mindinventory.com/blog/golang-project-structure/
 
+https://github.com/manuelkiessling/go-cleanarchitecture/tree/master/src
+
 ## 博客 
 https://aaf.engineering/go-web-application-structure-pt-1/
 
@@ -57,6 +59,7 @@ Calmh jakob borg
     
     
 https://hackernoon.com/basic-monorepo-design-in-go-e9ba1cb8e4e6
+
 >  ├──Makefile
    ├──Readme.md
    ├──cmd

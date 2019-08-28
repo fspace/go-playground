@@ -73,8 +73,18 @@ func dclDemo() {
 	fmt.Println("name:", nickname, "addr:", address)
 }
 
+// 埃及金字塔内发现的
+func magicNum() {
+	n := 142857
+	for i := 1; i <= 7; i++ {
+		fmt.Println(n * i)
+	}
+}
+
 func main() {
 	Declaration()
 	inferredType()
 	dclDemo()
+
+	magicNum()
 }

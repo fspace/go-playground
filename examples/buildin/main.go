@@ -1,6 +1,9 @@
 package main
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 func deferExample() error {
 	f, err := os.Open("config.txt")
@@ -12,6 +15,15 @@ func deferExample() error {
 	return nil
 }
 
-func main() {
+func newDemo1() {
+	n := 1
+	fmt.Printf("n 类型 %T ; n 的值：%v ; n的地址是：%v  \n", n, n, &n)
 
+	n2 := new(int)
+	fmt.Printf("n2 类型 %T ; n2 的值：%v ; n2 的地址是：%v \n", n2, n2, &n2)
+	fmt.Printf("n2 所指指针所指的值是：%v \n", *n2)
+}
+
+func main() {
+	newDemo1()
 }
