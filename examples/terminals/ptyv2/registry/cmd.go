@@ -6,6 +6,8 @@ import (
 	"playgo/examples/terminals/ptyv2/pkg"
 )
 
+// 注册表作为共享包 里面的注册项可用模拟 os注册表的概念 做分类
+
 var cmds []pkg.Cmd
 
 func init() {

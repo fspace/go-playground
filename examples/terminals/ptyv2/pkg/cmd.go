@@ -8,6 +8,7 @@ type Cmd struct {
 	Help string // a description string
 	// 结构体 可以看做成员变量集合 + 方法集合  方法如果想再灵活一点 可以变为函数类型的变量
 	// 由外部设置 这样灵活度就提升了 这是一个技巧
+	// 把结构体方法 提升为成员变量 此后就可以变为依赖注入啦 然后可以外部注入模拟的实现 测试时会很方便
 	Action func(w io.Writer, args ...string) bool
 }
 
