@@ -1,10 +1,10 @@
 package test1
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
 )
 
+// 直接在本目录或者 上级某个目录运行 > goconvey 命令行即可
 func TestSpec(t *testing.T) {
 
 	// Only pass t into top-level Convey calls

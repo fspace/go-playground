@@ -13,7 +13,7 @@ require (
 	github.com/go-redis/redis v6.15.3+incompatible // indirect
 	github.com/gogf/gf v1.8.0 // indirect
 	github.com/hnakamur/jsonpreprocess v0.0.0-20171017030034-a4e954386171 // indirect
-	github.com/jedib0t/go-pretty v4.2.1+incompatible // indirect
+	github.com/jedib0t/go-pretty v4.2.1+incompatible
 	github.com/kataras/go-events v0.0.2 // indirect
 	github.com/lalamove/konfig v0.7.2 // indirect
 	github.com/mediocregopher/radix/v3 v3.3.2 // indirect
@@ -23,6 +23,7 @@ require (
 	github.com/parnurzeal/gorequest v0.2.15 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/sirupsen/logrus v1.4.2
+	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/viper v1.4.0
 	github.com/syyongx/php2go v0.9.3 // indirect
