@@ -22,6 +22,21 @@ func main() {
 	if err != nil {
 		fmt.Println("Foo3 ERROR: ", err)
 	}
+
+	err = example.Foo4()
+	if err != nil {
+		fmt.Println("Foo4 ERROR: ", err)
+	}
+
+	err = example.CreateError()
+	if err != nil {
+		fmt.Printf(" custome error Type: %T \n", err)
+	}
+	example.CreateError2()
+
+	example.Exec1()
+	// ----------------------------------------------------
+
 	m := map[string]string{
 		"key1": "value1",
 		"key":  "value",

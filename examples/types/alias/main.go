@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 // ## 类型别名和原类型完全一样，只不过是另一种叫法而已
@@ -36,6 +37,10 @@ func main() {
 	var objWrapper SomeStructAlias = obj
 	objWrapper.printMyType()
 	obj.printMyType()
+
+	println(strings.Repeat("=", 80))
+	role1()
+	role2()
 }
 
 type SomeStruct struct {
@@ -48,4 +53,51 @@ type SomeStructAlias = SomeStruct
 // 定义在类型别名 SomeStructAlias 上 但原始类型SomeStruct 也具有了方法printMyType!
 func (this SomeStructAlias) printMyType() {
 	fmt.Printf("SomeStructAlias underline type is %T \n", this)
+}
+
+// ===============================================================================  |
+//					## DCI 架构
+// - yii中 组件类 可以动态绑定行为|或者设计期声明式的绑定行为 这样对象就有了某种角色
+// dci中 把一次交互 认为是舞台上的一个场景片段   先挑选不同的对象  然后让他们承担不同的角色 然后按照角色剧本表演就好了
+// 考量后  还是内嵌类型可能最贴近了  因为内嵌可以添加其他属性  这个在yii中Behavior也是这样 可以附加其他属性和方法
+// 如果是新类型声明 可能不具备扩展属性的能力         比如我要扮演包公 你得给我头上弄个月亮吧！
+
+// TODO  要实现DCI架构  将类型跟角色绑定 考虑两种可能 1. 内嵌  2. 类型
+type User struct {
+	Name string
+	Age  int
+}
+
+type Eater struct {
+	User
+}
+
+func (this Eater) Eat() {
+	fmt.Printf("I am %s and my age is %d \n ", this.Name, this.Age)
+	fmt.Println("I'm Eating something !")
+}
+
+func role1() {
+	u := User{
+		Name: "yiqing",
+		Age:  18,
+	}
+	etr := Eater{User: u}
+	etr.Eat()
+}
+
+type Eater2 User
+
+func (this Eater2) Eat() {
+	fmt.Printf("I am %s and my age is %d \n ", this.Name, this.Age)
+	fmt.Println("I'm Eating something !")
+}
+
+func role2() {
+	u := User{
+		Name: "yiqing",
+		Age:  18,
+	}
+	etr := Eater2(u)
+	etr.Eat()
 }

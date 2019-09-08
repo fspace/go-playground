@@ -32,6 +32,7 @@ func Foo3() (err error) {
 			// 可以在defer中做返回值串改
 			// 转型赋值给最终的返回值
 			err = er.(error)
+			fmt.Println("发个消息给管理员！")
 		}
 	}()
 	n1 := 10
