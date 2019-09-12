@@ -1,16 +1,25 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/davecgh/go-spew/spew"
+	//"log"
+	log "github.com/sirupsen/logrus" // replace the std log package
 	"os"
+	"xorm.io/core"
 
 	// "gopkg.in/go-playground/validator.v9" // 竟然用不了！
 
 	"github.com/go-ozzo/ozzo-validation"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/go-xorm/xorm"
 )
 
 // TODO 下版本 把所有的flag 变量整理到struct 这样利于配置验证规则 一个个验证太麻烦了
+// TODO 也可以考虑暴露为 web-server程序 便于和其他程序交互 现在是命令行程序
 // bool 类型的选项
 var (
 	h bool
@@ -75,25 +84,27 @@ func main() {
 	//	return
 	//}
 	////db ok, move on
-	err := validation.Validate(db,
-		validation.Required.Error("db Name is required"),
-		// validation.Match(regexp.MustCompile("^[0-9]{5}$")).Error("must be a string with five digits"),
-	)
+	err := validation.Errors{
+		"dbName":    validation.Validate(db, validation.Required),
+		"tableName": validation.Validate(table, validation.Required),
+		//"zip": validation.Validate(c.Address.Zip, validation.Required, validation.Match(regexp.MustCompile("^[0-9]{5}$"))),
+	}.Filter()
 	if err != nil {
-		fmt.Println(err)
-		fmt.Println()
+		fmt.Println("\r\n ", err, "\r\n ")
 		usage()
 		return
 	}
-	err = validation.Validate(table,
-		validation.Required.Error("table Name is required"),
-	)
-	if err != nil {
-		fmt.Println(err)
-		fmt.Println()
-		usage()
-		return
-	}
+	// validation ok, move on !
+
+	//
+	itr := NewDBInteractor(DBOption{
+		DriverName: "mysql",
+		// "root:@/test?charset=utf8"
+		DSName: fmt.Sprintf("root:@/%s?charset=utf8", db), // FIXME 这里可能需要暴露给flag 需要数据库的用户名跟密码 现在写死了！
+	})
+	rslt := itr.GetColumnsForTable(table)
+	// PrettyPrint(rslt)
+	PrintJson(rslt)
 
 }
 
@@ -104,4 +115,127 @@ Usage: gii-helper [-h] [-d dbName] [-t tableName]
 Options:
 `)
 	flag.PrintDefaults()
+}
+
+// =========================================================================  +|
+// ##              core engin        -------------  +|
+//             TODO 有空了提出到其他目录去
+//
+
+func NewDBInteractor(opt DBOption) *DBInteractor {
+	inst := &DBInteractor{}
+	inst.Option = opt
+	return inst
+}
+
+type DBOption struct {
+	DriverName string // DriverName: mysql
+	DSName     string // DataSourceName
+}
+
+type DBInteractor struct {
+	Option    DBOption
+	XormEngin xorm.Engine
+}
+
+type MyColumn struct {
+	core.Column
+	GoType string
+}
+
+func (itr *DBInteractor) GetColumnsForTable(name string) map[string]*MyColumn /**core.Column*/ {
+	var err error
+	//	engine, err := xorm.NewEngine("mysql", "root:@/test?charset=utf8")
+	//engine, err := xorm.NewEngine(Config.GetString("db.driver", "mysql"),
+	//	Config.GetString("db.dataSourceName", "root:@/test?charset=utf8"))
+	engine, err := xorm.NewEngine(itr.Option.DriverName,
+		itr.Option.DSName)
+	checkErr(err)
+	err = engine.Ping()
+	checkErr(err)
+
+	/*
+		db := engine.DB()
+		tables := db.
+	*/
+	dlc := engine.Dialect()
+	log.Println(" db name : ", dlc.URI().DbName)
+	tables, err := dlc.GetTables()
+	checkErr(err)
+
+	var tbl *core.Table
+	for _, t := range tables {
+
+		// for i, t := range tables {
+		/*
+			log.Printf("\n <--    table:%d    \t name: %s    --> \n", i, tbl.Name)
+			colSeq, cols, err := dlc.GetColumns(tbl.Name)
+			checkErr(err)
+			PrettyPrint(colSeq)
+			for nm, col := range cols {
+				// PrettyPrint(col)
+				fmt.Printf("\n\n name: %s  \t sql-type: %s  \t go-type: %s \n",
+					nm,
+					col.SQLType.Name,
+					core.SQLType2Type(col.SQLType).Name())
+			}
+		*/
+		if t.Name == name {
+			tbl = t
+			break
+		}
+	}
+	if tbl == nil {
+		log.Println("no such table :", name)
+		// panic(name + " does not exists !")
+		return nil // TODO 后期需要返回特定结构啦！
+	}
+
+	// 处理列
+	colSeq, cols, err := dlc.GetColumns(tbl.Name)
+	checkErr(err)
+
+	var _ = colSeq
+	//	PrettyPrint(colSeq)
+
+	fmt.Printf("\n  name  \t  sql-type  \t  go-type  \n")
+	fmt.Printf("================================================")
+
+	var results = make(map[string]*MyColumn, len(cols))
+
+	for nm, col := range cols {
+		// PrettyPrint(col)
+		fmt.Printf("\n  %s  \t  %s  \t  %s  ",
+			nm,
+			col.SQLType.Name,
+			core.SQLType2Type(col.SQLType).Name())
+
+		results[nm] = &MyColumn{
+			Column: *col,
+			GoType: core.SQLType2Type(col.SQLType).Name(),
+		}
+
+	}
+	fmt.Println("\n")
+
+	return results //cols
+
+}
+func checkErr(err error) {
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func PrettyPrint(v interface{}) {
+	//   fmt.Printf("%#v", p) //with name, value and type
+	// b, _ := json.MarshalIndent(v, "", "  ")
+	// println(string(b))
+	spew.Dump(v)
+}
+func PrintJson(v interface{}) {
+	//   fmt.Printf("%#v", p) //with name, value and type
+	b, _ := json.MarshalIndent(v, "", "  ")
+	//fmt.Println(b)
+	fmt.Println(string(b))
 }
