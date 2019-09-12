@@ -5,9 +5,12 @@ import (
 	"fmt"
 	"os"
 
-	"gopkg.in/go-playground/validator.v9"
+	// "gopkg.in/go-playground/validator.v9" // 竟然用不了！
+
+	"github.com/go-ozzo/ozzo-validation"
 )
 
+// TODO 下版本 把所有的flag 变量整理到struct 这样利于配置验证规则 一个个验证太麻烦了
 // bool 类型的选项
 var (
 	h bool
@@ -46,7 +49,7 @@ func init() {
 }
 
 // use a single instance of Validate, it caches struct info
-var validate *validator.Validate
+//var validate *validator.Validate
 
 /**
 @see https://www.jianshu.com/p/f9cf46a4de0e
@@ -72,12 +75,23 @@ func main() {
 	//	return
 	//}
 	////db ok, move on
-	myEmail := "joeybloggs.gmail.com"
-
-	errs := validate.Var(myEmail, "required,email")
-
-	if errs != nil {
-		fmt.Println(errs) // output: Key: "" Error:Field validation for "" failed on the "email" tag
+	err := validation.Validate(db,
+		validation.Required.Error("db Name is required"),
+		// validation.Match(regexp.MustCompile("^[0-9]{5}$")).Error("must be a string with five digits"),
+	)
+	if err != nil {
+		fmt.Println(err)
+		fmt.Println()
+		usage()
+		return
+	}
+	err = validation.Validate(table,
+		validation.Required.Error("table Name is required"),
+	)
+	if err != nil {
+		fmt.Println(err)
+		fmt.Println()
+		usage()
 		return
 	}
 
