@@ -27,8 +27,12 @@ var (
 
 // options
 var (
-	db    string
-	table string
+	db    string // db name
+	table string // table name
+)
+
+var (
+	debug bool
 )
 
 //// flag 太多时 对于不同用途的选项 也可以归组选项 不同用途的归为一个类型 这样变量就有了group了 便于管理和区分
@@ -55,6 +59,10 @@ func init() {
 
 	// 改变默认的 Usage，flag包中的Usage 其实是一个函数类型。这里是覆盖默认函数实现，具体见后面Usage部分的分析
 	flag.Usage = usage
+
+	// ## 设置日志级别
+	flag.BoolVar(&debug, "debug", false, "enable the log output")
+
 }
 
 // use a single instance of Validate, it caches struct info
@@ -69,11 +77,19 @@ func init() {
 -flag // 只支持bool类型
 -flag=x
 -flag x // 只支持非bool类型
+
+lugrus： @see http://xiaorui.cc/2018/01/11/golang-logrus%E7%9A%84%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AEhook-logrotate/
+
 */
 func main() {
+	// usage-sample： go run main.go -d acontent -t ac_config --debug
+
 	flag.Parse()
 	if h {
 		flag.Usage()
+	}
+	if !debug {
+		log.SetLevel(log.WarnLevel)
 	}
 
 	//// ## 验证flags
@@ -151,6 +167,12 @@ func (itr *DBInteractor) GetColumnsForTable(name string) map[string]*MyColumn /*
 	engine, err := xorm.NewEngine(itr.Option.DriverName,
 		itr.Option.DSName)
 	checkErr(err)
+
+	// ## 设置xorm日志
+	f, err := os.Create("sql.log")
+	checkErr(err)
+	engine.SetLogger(xorm.NewSimpleLogger(f))
+
 	err = engine.Ping()
 	checkErr(err)
 
@@ -198,14 +220,14 @@ func (itr *DBInteractor) GetColumnsForTable(name string) map[string]*MyColumn /*
 	var _ = colSeq
 	//	PrettyPrint(colSeq)
 
-	fmt.Printf("\n  name  \t  sql-type  \t  go-type  \n")
-	fmt.Printf("================================================")
+	log.Printf("\n  name  \t  sql-type  \t  go-type  \n")
+	log.Printf("================================================")
 
 	var results = make(map[string]*MyColumn, len(cols))
 
 	for nm, col := range cols {
 		// PrettyPrint(col)
-		fmt.Printf("\n  %s  \t  %s  \t  %s  ",
+		log.Printf("\n  %s  \t  %s  \t  %s  ",
 			nm,
 			col.SQLType.Name,
 			core.SQLType2Type(col.SQLType).Name())
@@ -216,7 +238,7 @@ func (itr *DBInteractor) GetColumnsForTable(name string) map[string]*MyColumn /*
 		}
 
 	}
-	fmt.Println("\n")
+	log.Println("\n")
 
 	return results //cols
 
