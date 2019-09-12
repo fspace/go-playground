@@ -5,6 +5,9 @@ import (
 	"github.com/asaskevich/EventBus"
 )
 
+// 跨项目的可以考虑： https://github.com/ThreeDotsLabs/watermill
+// 还有一个奇怪语法的： https://github.com/olebedev/emitter
+
 func init() {
 	Bus = EventBus.New()
 }
@@ -25,4 +28,4 @@ func main() {
 	bus.Publish("main:calculator", 20, 40)
 	bus.Unsubscribe("main:calculator", calculator)
 }
- */
+*/
