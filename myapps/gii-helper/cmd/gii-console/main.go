@@ -168,8 +168,8 @@ func main() {
 }
 
 func usage() {
-	fmt.Fprintf(os.Stderr, `gii-helper version: gii-helper/0.0.1
-Usage: gii-helper [-h] [-d dbName] [-t tableName] 
+	fmt.Fprintf(os.Stderr, `gii-console version: gii-console/0.0.1
+Usage: gii-console [-h] [-d dbName] [-t tableName] 
 
 Options:
 `)

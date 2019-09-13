@@ -5,10 +5,13 @@
 ##  NOTE : all config keys should be  lowercase
 # 配置键必须全小写！！！ 参考 https://github.com/jinzhu/configor
 
-#dbUser: "root"
-#dbPass: ""
-#dbHost: "127.0.0.1"
-dbhost: "127.0.0.3"
-dbport: 3307
+dbuser: "root"
+dbpass: ""
+dbhost: "127.0.0.1"
+dbport: 3306
 
 appname: "gii-console"
+
+contacts:
+  - name: i test
+    email: test@test.com
