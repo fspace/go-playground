@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/pkg/errors"
-	"github.com/prometheus/common/log"
 	"net/http"
 	"os"
 	"playgo/myapps/gii-helper/cmd/gii-web/app"
@@ -21,28 +20,26 @@ func run() error {
 	if err != nil {
 		return errors.Wrap(err, "LoadConfig")
 	}
-	_ = conf
-	fmt.Printf("config: %#v", conf)
-
-	// 测试是否可以再次使用配置对象：
-	var conf2 = struct {
-		Contacts []struct {
-			Name  string
-			Email string `required:"true"`
-		}
-	}{}
-	if err := conf.Configure(&conf2); err != nil {
-		log.Fatalln(err)
-	}
-	fmt.Printf("config2: %#v", conf2)
+	//_ = conf
+	//fmt.Printf("config: %#v", conf)
 
 	//err := setupXxx()
 	//if err != nil {
 	//	return errors.Wrap(err,"setup Xxx")
 	//}
 	// ...
-	svr := http.Server{}
-	_ = svr
+	// TODO 学习使用Mux 打造自己的路由
+
+	mux := http.NewServeMux()
+
+	svr := app.Server{
+		AppConfig: conf,
+		Router:    mux,
+	}
+	// 构建路由配置
+	svr.Routes()
+
+	http.ListenAndServe(":8000", mux)
 
 	return nil
 }

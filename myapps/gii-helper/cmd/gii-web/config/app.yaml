@@ -10,8 +10,15 @@ dbpass: ""
 dbhost: "127.0.0.1"
 dbport: 3306
 
+dbdriver: "mysql"
+# 此处需要动态构造数据库连接！！！ conn_url 形式还稍微统一点 可以考虑使用  URL形式 有许多连接参数需要查文档哦
+# connStr := "postgres://pqgotest:password@localhost/pqgotest?sslmode=verify-full"
+# db, err := sql.Open("postgres", connStr)
+# 	dns := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", dbuser, dbpwd, dbhost, dbname)
+datasourcefmt: "<dbuser>:<dbpass>@tcp(<dbhost>:<dbport>)/<dbname>?charset=utf8"
+
 appname: "gii-console"
 
 contacts:
-  - name: i test
-    email: test@test.com
+  - name: yiqing
+    email: yiqing@qq.com

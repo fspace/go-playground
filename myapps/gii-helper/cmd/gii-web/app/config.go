@@ -11,6 +11,9 @@ type Config struct {
 	DbHost string //= "127.0.0.1"
 	DbPort int    //= 3306
 
+	DbDriver      string // mysql
+	DataSourceFmt string // TODO  后续提供根据不同的驱动  生成不同的数据源功能 每个驱动类型的数据源格式还不一样
+
 	APPName string `default:"app name"`
 	// 原始配置对象 OriginalConfigor
 	// Raw *config.Config
