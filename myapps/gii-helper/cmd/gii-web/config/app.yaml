@@ -2,7 +2,13 @@
 # Make sure you override this in production with the environment variable: RESTFUL_DSN
 # dsn: "postgres://postgres:postgres@127.0.0.1:5432/go_restful?sslmode=disable"
 
+##  NOTE : all config keys should be  lowercase
+# 配置键必须全小写！！！ 参考 https://github.com/jinzhu/configor
+
 #dbUser: "root"
 #dbPass: ""
 #dbHost: "127.0.0.1"
-dbPort: 3307
+dbhost: "127.0.0.3"
+dbport: 3307
+
+appname: "gii-console"
