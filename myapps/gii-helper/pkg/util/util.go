@@ -20,6 +20,7 @@ func PrintJson(v interface{}) {
 	fmt.Println(string(b))
 }
 
+// TODO  以后可千万不敢用这种东西了 错误随便吞噬不好哦
 func CheckErr(err error) {
 	if err != nil {
 		log.Fatalln(err)

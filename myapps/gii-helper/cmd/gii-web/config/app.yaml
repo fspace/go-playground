@@ -15,6 +15,7 @@ dbdriver: "mysql"
 # connStr := "postgres://pqgotest:password@localhost/pqgotest?sslmode=verify-full"
 # db, err := sql.Open("postgres", connStr)
 # 	dns := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", dbuser, dbpwd, dbhost, dbname)
+#   NOTE: <dbuser> <dbpass> <dbhost> <dbport> <dbname> 这几个占位符是指定的不能自己瞎搞哦
 datasourcefmt: "<dbuser>:<dbpass>@tcp(<dbhost>:<dbport>)/<dbname>?charset=utf8"
 
 appname: "gii-console"

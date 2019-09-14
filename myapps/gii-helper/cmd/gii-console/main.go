@@ -161,8 +161,12 @@ func main() {
 		// "root:@/test?charset=utf8"
 		DSName: ds,
 	})
-	rslt := itr.GetColumnsForTable(table)
+	rslt, err := itr.GetColumnsForTable(table)
 	// PrettyPrint(rslt)
+	if err != nil {
+		log.Fatalln(err)
+		return
+	}
 	util.PrintJson(rslt)
 
 }

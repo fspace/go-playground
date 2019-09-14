@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"os"
 	"playgo/myapps/gii-helper/cmd/gii-web/app"
+
+	"github.com/gorilla/mux"
 )
 
 func main() {
@@ -30,7 +32,8 @@ func run() error {
 	// ...
 	// TODO 学习使用Mux 打造自己的路由
 
-	mux := http.NewServeMux()
+	//mux := http.NewServeMux()
+	mux := mux.NewRouter()
 
 	svr := app.Server{
 		AppConfig: conf,

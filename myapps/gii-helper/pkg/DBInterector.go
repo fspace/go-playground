@@ -1,12 +1,13 @@
 package pkg
 
 import (
+	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	_ "github.com/lib/pq"
+	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus" // replace the std log package
 	"os"
-	"playgo/myapps/gii-helper/pkg/util"
 	"xorm.io/core"
 )
 
@@ -36,22 +37,28 @@ type MyColumn struct {
 	GoType string
 }
 
-func (itr *DBInteractor) GetColumnsForTable(name string) map[string]*MyColumn /**core.Column*/ {
+func (itr *DBInteractor) GetColumnsForTable(name string) (map[string]*MyColumn, error) /**core.Column*/ {
 	var err error
 	//	engine, err := xorm.NewEngine("mysql", "root:@/test?charset=utf8")
 	//engine, err := xorm.NewEngine(Config.GetString("db.driver", "mysql"),
 	//	Config.GetString("db.dataSourceName", "root:@/test?charset=utf8"))
 	engine, err := xorm.NewEngine(itr.Option.DriverName,
 		itr.Option.DSName)
-	util.CheckErr(err)
+	if err != nil {
+		return nil, err
+	}
 
 	// ## 设置xorm日志
 	f, err := os.Create("sql.log")
-	util.CheckErr(err)
+	if err != nil {
+		return nil, err
+	}
 	engine.SetLogger(xorm.NewSimpleLogger(f))
 
 	err = engine.Ping()
-	util.CheckErr(err)
+	if err != nil {
+		return nil, err
+	}
 
 	/*
 		db := engine.DB()
@@ -60,24 +67,28 @@ func (itr *DBInteractor) GetColumnsForTable(name string) map[string]*MyColumn /*
 	dlc := engine.Dialect()
 	log.Println(" db name : ", dlc.URI().DbName)
 	tables, err := dlc.GetTables()
-	util.CheckErr(err)
+	if err != nil {
+		return nil, err
+	}
 
 	var tbl *core.Table
 	for _, t := range tables {
 
 		// for i, t := range tables {
 		/*
-			log.Printf("\n <--    table:%d    \t name: %s    --> \n", i, tbl.Name)
-			colSeq, cols, err := dlc.GetColumns(tbl.Name)
-			util.CheckErr(err)
-			PrettyPrint(colSeq)
-			for nm, col := range cols {
-				// PrettyPrint(col)
-				fmt.Printf("\n\n name: %s  \t sql-type: %s  \t go-type: %s \n",
-					nm,
-					col.SQLType.Name,
-					core.SQLType2Type(col.SQLType).Name())
-			}
+					log.Printf("\n <--    table:%d    \t name: %s    --> \n", i, tbl.Name)
+					colSeq, cols, err := dlc.GetColumns(tbl.Name)
+					if err != nil {
+		   return nil , err
+		}
+					PrettyPrint(colSeq)
+					for nm, col := range cols {
+						// PrettyPrint(col)
+						fmt.Printf("\n\n name: %s  \t sql-type: %s  \t go-type: %s \n",
+							nm,
+							col.SQLType.Name,
+							core.SQLType2Type(col.SQLType).Name())
+					}
 		*/
 		if t.Name == name {
 			tbl = t
@@ -87,12 +98,14 @@ func (itr *DBInteractor) GetColumnsForTable(name string) map[string]*MyColumn /*
 	if tbl == nil {
 		log.Println("no such table :", name)
 		// panic(name + " does not exists !")
-		return nil // TODO 后期需要返回特定结构啦！
+		return nil, errors.New(fmt.Sprint("no such table :", name)) // TODO 后期需要返回特定结构啦！
 	}
 
 	// 处理列
 	colSeq, cols, err := dlc.GetColumns(tbl.Name)
-	util.CheckErr(err)
+	if err != nil {
+		return nil, err
+	}
 
 	var _ = colSeq
 	//	PrettyPrint(colSeq)
@@ -117,6 +130,6 @@ func (itr *DBInteractor) GetColumnsForTable(name string) map[string]*MyColumn /*
 	}
 	log.Println("\n")
 
-	return results //cols
+	return results, nil //cols
 
 }
