@@ -178,6 +178,9 @@ func main() {
 
 	// demo
 	demo1()
+	// join
+	fmt.Println("demo join : ")
+	demoJoin()
 }
 
 var p = fmt.Println
@@ -198,4 +201,17 @@ func demo1() {
 	p()
 	p("Len: ", len("hello")) //字符串长度
 	p("Char:", "hello"[1])   //标取字符串中的字符，类型为byte
+}
+
+func demoJoin() {
+	in := []string{
+		"yes",
+	}
+	fmt.Println(strings.Join(in, "."))
+
+	in = []string{
+		"yes",
+		"here",
+	}
+	fmt.Println(strings.Join(in, "."))
 }
