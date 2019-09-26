@@ -2,21 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bccf549-d5e5-47fd-942a-ba25b93e7e5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/examples/channel-demo1/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/error/example/demo1.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/terminals/pty/cmds/print-file.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/terminals/pty/cmds/shuffle.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/terminals/pty/pty-v0/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/terminals/ptyv2/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/terminals/ptyv2/pkg/cmd.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/terminals/ptyv2/registry/cmd.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/awesomelib/inflectors/grsmv-inflect/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/awesomelib/inflectors/jinzhu-inflection/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/awesomelib/inflectors/nathanfaucett-inflect/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/awesomelib/inflectors/tangzero-inflector/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/awesomelib/routers/bone/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev_docs/misc.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/webservers/reademe.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapps/gii-helper/READEME.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/utils/webutil/util.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/buildin/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/buildin/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/error/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/error/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/terminals/pty/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/terminals/pty/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/test1/xxx_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/test1/xxx_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/types/alias/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/types/alias/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/webservers/demo2/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/webservers/demo2/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/utils/webutil/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/utils/webutil/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapps/gii-helper/pkg/DBInterector.go" beforeDir="false" afterPath="$PROJECT_DIR$/myapps/gii-helper/pkg/DBInterector.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stdlib/strings/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/stdlib/strings/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,106 +30,64 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/error/example/demo1.go">
+        <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/config/app.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="806">
-              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+            <state relative-caret-position="205">
+              <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/channel-demo1/main.go">
+        <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/utils/webutil/util.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="7" column="83" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
+            <state relative-caret-position="2340">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/terminals/pty/main.go">
+        <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="37" lean-forward="true" selection-end-line="63" />
-              <folding>
-                <element signature="e#14#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/terminals/pty/cmds/shuffle.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-              <folding>
-                <element signature="e#14#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/terminals/pty/cmds/print-file.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-107">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-              <folding>
-                <element signature="e#14#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/terminals/ptyv2/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-              <folding>
-                <element signature="e#14#101#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="699">
+              <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/examples/terminals/ptyv2/registry/cmd.go">
+        <entry file="file://$PROJECT_DIR$/stdlib/strings/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            <state relative-caret-position="439">
+              <caret line="215" column="39" selection-start-line="215" selection-start-column="39" selection-end-line="215" selection-end-column="39" />
               <folding>
-                <element signature="e#18#73#0" expanded="true" />
+                <element signature="e#14#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/terminals/ptyv2/pkg/cmd.go">
+        <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/config.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="-1199">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#13#93#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/terminals/pty/pty-v0/main.go">
+        <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/awesomelib/viper/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="728">
+              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+              <folding>
+                <element signature="e#13#219#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,10 +109,22 @@
       <find>deferReparie</find>
       <find>;</find>
       <find>cmd</find>
+      <find>PrettyPrint</find>
+      <find>fmt.</find>
+      <find>fmt.P</find>
+      <find>engin</find>
+      <find>DsName</find>
+      <find>util.util</find>
+      <find>s.</find>
+      <find>gii-helper</find>
+      <find>util.CheckErr(err)</find>
     </findStrings>
     <replaceStrings>
       <replace>deferRepair</replace>
       <replace>Cmd</replace>
+      <replace>util</replace>
+      <replace>strings.</replace>
+      <replace>gii-console</replace>
     </replaceStrings>
   </component>
   <component name="GOROOT" path="D:\Go" />
@@ -161,64 +134,64 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/examples/io/buffer/main.go" />
-        <option value="$PROJECT_DIR$/examples/io/wc/main.go" />
-        <option value="$PROJECT_DIR$/examples/io/writingall/main.go" />
-        <option value="$PROJECT_DIR$/examples/io/buffer2/main.go" />
-        <option value="$PROJECT_DIR$/examples/io/filescreate/main.go" />
-        <option value="$PROJECT_DIR$/examples/io/file-truncate/main.go" />
-        <option value="$PROJECT_DIR$/examples/io/fileops/main.go" />
-        <option value="$PROJECT_DIR$/examples/streams/bytestream/main.go" />
-        <option value="$PROJECT_DIR$/examples/streams/reader/main.go" />
-        <option value="$PROJECT_DIR$/examples/streams/buffer/main.go" />
-        <option value="$PROJECT_DIR$/examples/streams/strwriter/main.go" />
-        <option value="$PROJECT_DIR$/examples/streams/writerdef/main.go" />
-        <option value="$PROJECT_DIR$/examples/streams/copying/main.go" />
-        <option value="$PROJECT_DIR$/examples/streams/pipe/main.go" />
-        <option value="$PROJECT_DIR$/examples/types/basic/main.go" />
-        <option value="$PROJECT_DIR$/examples/types/flt/main.go" />
-        <option value="$PROJECT_DIR$/examples/types/char/main.go" />
-        <option value="$PROJECT_DIR$/examples/types/bools/main.go" />
-        <option value="$PROJECT_DIR$/examples/types/str/main.go" />
-        <option value="$PROJECT_DIR$/examples/types/zero-value/main.go" />
-        <option value="$PROJECT_DIR$/awesomelib/db/upperdb/main.go" />
-        <option value="$PROJECT_DIR$/examples/types/conv/main.go" />
-        <option value="$PROJECT_DIR$/awesomelib/php2go/main.go" />
-        <option value="$PROJECT_DIR$/awesomelib/reflect2/main.go" />
-        <option value="$PROJECT_DIR$/awesomelib/redis/radix/main.go" />
-        <option value="$PROJECT_DIR$/awesomelib/redis/go-redis/main.go" />
-        <option value="$PROJECT_DIR$/examples/regexp/main.go" />
-        <option value="$PROJECT_DIR$/examples/json/main.go" />
-        <option value="$PROJECT_DIR$/awesomelib/goquery/main.go" />
-        <option value="$PROJECT_DIR$/awesomelib/gorequest/main.go" />
-        <option value="$PROJECT_DIR$/examples/vars/main.go" />
-        <option value="$PROJECT_DIR$/examples/datetime/main.go" />
-        <option value="$PROJECT_DIR$/stdlib/unsafe/main.go" />
-        <option value="$PROJECT_DIR$/awesomelib/concurrent-map/main.go" />
-        <option value="$PROJECT_DIR$/dev_docs/util.md.go" />
-        <option value="$PROJECT_DIR$/dev_docs/util.md" />
-        <option value="$PROJECT_DIR$/examples/test1/main.go" />
-        <option value="$PROJECT_DIR$/examples/test1/xxx_test.go" />
-        <option value="$PROJECT_DIR$/examples/buildin/main.go" />
-        <option value="$PROJECT_DIR$/examples/error/main.go" />
-        <option value="$PROJECT_DIR$/examples/error/example/demo1.go" />
-        <option value="$PROJECT_DIR$/examples/channel-demo1/main.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/pty/pty-v0/main.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/pty/cmds/shuffle.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/pty/main.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/pty/cmds/print-file.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/pty-2/main.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/pty-2/registry/cmd.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/ptyv2/pkg/cmd.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/ptyv2/main.go" />
-        <option value="$PROJECT_DIR$/examples/terminals/ptyv2/registry/cmd.go" />
+        <option value="$PROJECT_DIR$/examples/types/alias/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/xlsx/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/structtag/main.go" />
+        <option value="$PROJECT_DIR$/stdlib/ast/main.go" />
+        <option value="$PROJECT_DIR$/stdlib/ast/demo2/main.go" />
+        <option value="$PROJECT_DIR$/stdlib/ast/justforfunc/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/logs/zerolog/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/logs/logrus/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/flaggy/main.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/core/util/util.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/core/DBInterector.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/main.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/cmd/main.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/config.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/handlers_test.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/handlers.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/routes.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/router.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/responses.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/models.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/logger.go" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/httprouter/READEME.md" />
+        <option value="$PROJECT_DIR$/awesomelib/routers/bone/main.go" />
+        <option value="$PROJECT_DIR$/examples/webservers/demo2/main.go" />
+        <option value="$PROJECT_DIR$/examples/webservers/reademe.md" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/main.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/config/app.yaml" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-console/main.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/pkg/util/util.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/server.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/pkg/DBInterector.go" />
+        <option value="$PROJECT_DIR$/awesomelib/sprig/tpls/tpl1.html" />
+        <option value="$PROJECT_DIR$/awesomelib/sprig/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/sprig/text/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/sprig/html/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/sqlbuilders/gendry/main.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/utils/webutil/util.go" />
+        <option value="$PROJECT_DIR$/dev_docs/misc.md" />
+        <option value="$PROJECT_DIR$/awesomelib/inflectors/tangzero-inflector/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/inflectors/nathanfaucett-inflect/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/inflectors/grsmv-inflect/main.go" />
+        <option value="$PROJECT_DIR$/awesomelib/inflectors/jinzhu-inflection/main.go" />
+        <option value="$PROJECT_DIR$/advexamples/processes/process-interact/main.go" />
+        <option value="$PROJECT_DIR$/myapps/gii-helper/READEME.md" />
+        <option value="$PROJECT_DIR$/advexamples/processes/basic/main.go" />
+        <option value="$PROJECT_DIR$/advexamples/processes/workingdir/main.go" />
+        <option value="$PROJECT_DIR$/advexamples/processes/child/main.go" />
+        <option value="$PROJECT_DIR$/pkg/utils/webutil/util.go" />
+        <option value="$PROJECT_DIR$/go.mod" />
+        <option value="$PROJECT_DIR$/stdlib/strings/main.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="486" />
-    <option name="y" value="21" />
-    <option name="width" value="602" />
+    <option name="x" value="139" />
+    <option name="y" value="-19" />
+    <option name="width" value="1366" />
     <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -229,7 +202,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,64 +212,19 @@
             <path>
               <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
               <item name="go-playground" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="stdlib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
               <item name="go-playground" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="terminals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-playground" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="terminals" type="462c0819:PsiDirectoryNode" />
-              <item name="pty" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-playground" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="terminals" type="462c0819:PsiDirectoryNode" />
-              <item name="ptyv2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-playground" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="terminals" type="462c0819:PsiDirectoryNode" />
-              <item name="ptyv2" type="462c0819:PsiDirectoryNode" />
-              <item name="pkg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-playground" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="terminals" type="462c0819:PsiDirectoryNode" />
-              <item name="ptyv2" type="462c0819:PsiDirectoryNode" />
-              <item name="registry" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-playground" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="test1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
-              <item name="go-playground" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="vars" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-playground" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="stdlib" type="462c0819:PsiDirectoryNode" />
+              <item name="strings" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,20 +241,22 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\yiqing-go-space\my-go\go-playground\awesomelib\sprig\html" />
+      <recent name="E:\yiqing-go-space\my-go\go-playground\myapps\gii-helper\cmd\gii-console" />
+      <recent name="E:\yiqing-go-space\my-go\go-playground\myapps\gii-helper\cmd" />
       <recent name="E:\yiqing-go-space\my-go\go-playground\stdlib\ioutil" />
       <recent name="E:\yiqing-go-space\my-go\go-playground\examples" />
-      <recent name="E:\yiqing-go-space\my-go\go-playground\awesomelib\go-pretty\cmd\pretty1" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\yiqing-go-space\my-go\go-playground\awesomelib\routers\httprouter\v0" />
+      <recent name="E:\yiqing-go-space\my-go\go-playground\myapps\gii-helper\cmd\gii-web\app" />
+      <recent name="E:\yiqing-go-space\my-go\go-playground\myapps\gii-helper\v0" />
       <recent name="E:\yiqing-go-space\my-go\go-playground\examples\terminals\pty\pty-v0" />
       <recent name="E:\yiqing-go-space\my-go\go-playground\stdlib\http_template\tpls" />
-      <recent name="E:\yiqing-go-space\my-go\go-playground\awesomelib\clis\kingpin\modules\user\console" />
-      <recent name="E:\yiqing-go-space\my-go\go-playground\awesomelib\clis\kingpin\modules" />
-      <recent name="E:\yiqing-go-space\my-go\go-playground\awesomelib\konfig" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -382,12 +311,12 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.2310536" visible="true" weight="0.2806354" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.2310536" visible="true" weight="0.27760968" />
       <window_info id="Structure" order="1" sideWeight="0.7689464" side_tool="true" weight="0.22817764" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32876712" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.685567" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5314183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -395,8 +324,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.94614005" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.4236984" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32854578" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32854578" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.50628364" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -447,425 +376,453 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="go 基础学习  测试一些库" />
-    <MESSAGE value="整数 范围 -1 的原因" />
-    <MESSAGE value="学习正则式" />
-    <MESSAGE value="内存对其" />
-    <MESSAGE value="内存对其  并发map 等" />
-    <MESSAGE value="使用goconvey测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="使用goconvey测试" />
+    <MESSAGE value="测试类型别名特性" />
+    <MESSAGE value="测试是否可以实现 DCI架构" />
+    <MESSAGE value="测试excel文件写入" />
+    <MESSAGE value="测试 structtag库  可以用来做代码生成 model修改" />
+    <MESSAGE value="go-playground/validator.v9  竟然有问题 验证哪里老报错" />
+    <MESSAGE value="用强哥的验证器实现   数据库名 表名 是必填的flag" />
+    <MESSAGE value="测试日志库 zerolog" />
+    <MESSAGE value="测试日志库 logrus" />
+    <MESSAGE value="日志库使用 logrus" />
+    <MESSAGE value="测试一个 flag库 比原始的强大？" />
+    <MESSAGE value="ast 库学习" />
+    <MESSAGE value="fmt 输出改造为log输出 这样可以使用关闭开关 以便输出合法的json格式" />
+    <MESSAGE value="重构目录结构 以便支持api风格调用  cmd调用有时候还是有问题的" />
+    <MESSAGE value="准备完成web端  用强哥的配置库 有点状况 换一个配置库试试" />
+    <MESSAGE value="换为使用 金柱的 配置对象" />
+    <MESSAGE value="测试是否可以再次使用配置对象" />
+    <MESSAGE value="字符串工具库 strings 粗略看了看api" />
+    <MESSAGE value="准备实现路由逻辑" />
+    <MESSAGE value="使用httprouter 构建api服务器" />
+    <MESSAGE value="使用httprouter 构建api服务器重构结构" />
+    <MESSAGE value="web 服务器的简单写法" />
+    <MESSAGE value="web 服务器版 基本完成啦！" />
+    <MESSAGE value="go下很不错的模板函数库 源自 Twig underscore.js" />
+    <MESSAGE value="试下几个sqlbuilder" />
+    <MESSAGE value="进程交互试玩" />
+    <option name="LAST_COMMIT_MESSAGE" value="进程交互试玩" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>https://mirrors.aliyun.com/goproxy/</proxy>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/awesomelib/inflectors/jinzhu-inflection/main.go</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/examples/io/fileops/main.go">
+    <entry file="file://E:/yiqing-go/pkg/mod/github.com/jinzhu/configor@v1.1.1/utils.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+        <state relative-caret-position="6136">
+          <caret line="301" column="26" selection-start-line="301" selection-start-column="26" selection-end-line="301" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/yiqing-go/pkg/mod/github.com/jinzhu/configor@v1.1.1/configor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-461">
+          <caret line="87" column="23" lean-forward="true" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/handlers_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
           <folding>
-            <element signature="e#14#37#0" expanded="true" />
+            <element signature="e#14#108#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/streams/bytestream/main.go">
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/models.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state relative-caret-position="312">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/streams/reader/main.go">
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/logger.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="312">
+          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
           <folding>
-            <element signature="e#14#46#0" expanded="true" />
+            <element signature="e#14#91#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/streams/buffer/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="e#14#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/streams/strwriter/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="8" column="92" selection-start-line="8" selection-start-column="92" selection-end-line="8" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/streams/writerdef/main.go">
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/handlers.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#14#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/v0/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2323" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/routes.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/responses.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
           <folding>
             <element signature="e#14#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/streams/copying/main.go">
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/httprouter/READEME.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="81">
+            <caret line="3" selection-start-line="3" selection-end-line="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/routers/bone/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#14#103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/webservers/demo2/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
+          <folding>
+            <element signature="e#14#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/webservers/reademe.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="16" selection-start-column="16" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Go/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/yiqing-go/pkg/mod/github.com/gorilla/mux@v1.7.2/mux.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Go/src/strings/strings.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="97" column="30" lean-forward="true" selection-start-line="97" selection-start-column="14" selection-end-line="97" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/yiqing-go/pkg/mod/github.com/sirupsen/logrus@v1.4.2/exported.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="223" column="11" lean-forward="true" selection-start-line="223" selection-start-column="11" selection-end-line="223" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/yiqing-go/pkg/mod/github.com/sirupsen/logrus@v1.4.2/logger.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/pkg/util/util.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding>
+            <element signature="e#14#148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/pkg/DBInterector.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="125" column="25" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/sprig/html/tpls/tpl1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Go/src/io/io.go">
+    <entry file="file://$PROJECT_DIR$/awesomelib/sprig/text/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8594">
-          <caret line="338" column="5" selection-start-line="338" selection-start-column="5" selection-end-line="338" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/streams/pipe/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+        <state relative-caret-position="64">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
           <folding>
             <element signature="e#14#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/types/basic/main.go">
+    <entry file="file://D:/Go/src/html/template/template.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        <state relative-caret-position="45">
+          <caret line="281" column="5" selection-start-line="281" selection-start-column="5" selection-end-line="281" selection-end-column="5" />
           <folding>
-            <element signature="e#14#41#0" expanded="true" />
+            <element signature="e#178#279#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/types/flt/main.go">
+    <entry file="file://$PROJECT_DIR$/awesomelib/sqlbuilders/gendry/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#14#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/sprig/html/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding>
+            <element signature="e#14#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/yiqing-go/pkg/mod/github.com/!masterminds/sprig@v2.20.0+incompatible/functions.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="131" column="33" selection-start-line="131" selection-start-column="33" selection-end-line="131" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Go/src/builtin/builtin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6474">
+          <caret line="249" column="5" selection-start-line="249" selection-start-column="5" selection-end-line="249" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/inflectors/tangzero-inflector/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/db/upperdb/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#61#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/READEME.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="286">
+            <caret line="11" selection-start-line="11" selection-end-line="11" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Go/src/strconv/itoa.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Go/src/time/format.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="482" column="14" selection-start-line="482" selection-start-column="14" selection-end-line="482" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/types/char/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1014">
-          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/types/bools/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#14#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/types/str/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/types/zero-value/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/types/casting/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/types/conv/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-          <folding>
-            <element signature="e#14#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Go/src/time/time.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16952">
-          <caret line="652" column="4" selection-start-line="652" selection-start-column="4" selection-end-line="652" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/php2go/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/redis/radix/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/redis/go-redis/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding>
-            <element signature="e#14#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/regexp/main.go">
+    <entry file="file://$PROJECT_DIR$/advexamples/processes/basic/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
-          <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/gorequest/main.go">
+    <entry file="file://E:/yiqing-go/pkg/mod/github.com/huandu/xstrings@v1.2.0/convert.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        <state relative-caret-position="416">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/datetime/main.go">
+    <entry file="file://$PROJECT_DIR$/dev_docs/misc.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="390">
+            <caret line="15" column="75" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/awesomelib/inflectors/nathanfaucett-inflect/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2548">
-          <caret line="102" column="31" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+        <state relative-caret-position="78">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/yiqing-go/pkg/mod/github.com/go-redis/redis@v6.15.3+incompatible/redis.go">
+    <entry file="file://$PROJECT_DIR$/awesomelib/inflectors/grsmv-inflect/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9958">
-          <caret line="393" column="5" selection-start-line="393" selection-start-column="5" selection-end-line="393" selection-end-column="5" />
+        <state relative-caret-position="78">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stdlib/unsafe/main.go">
+    <entry file="file://$PROJECT_DIR$/awesomelib/inflectors/jinzhu-inflection/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
-          <folding>
-            <element signature="e#14#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="182">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/json/main.go">
+    <entry file="file://$PROJECT_DIR$/advexamples/processes/process-interact/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="32" />
+        <state relative-caret-position="182">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/goquery/main.go">
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/server.go.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1567">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-console/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="157" column="6" selection-start-line="157" selection-start-column="6" selection-end-line="157" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go.mod">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/reflect2/main.go">
+    <entry file="file://$PROJECT_DIR$/pkg/utils/webutil/util.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev_docs/util.md.go" />
-    <entry file="file://$PROJECT_DIR$/awesomelib/concurrent-map/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+        <state relative-caret-position="439">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding>
-            <element signature="e#13#60#0" expanded="true" />
+            <element signature="e#17#52#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev_docs/util.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="52">
-            <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/test1/xxx_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-          <folding>
-            <element signature="e#15#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapps/blog/cmd/my-blog/main.go">
+    <entry file="file://$PROJECT_DIR$/stdlib/ioutil/main.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/vars/main.go">
+    <entry file="file://$PROJECT_DIR$/advexamples/processes/child/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2132">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="257">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/clis/kingpin/main.go">
+    <entry file="file://$PROJECT_DIR$/advexamples/processes/workingdir/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="439">
+          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/config/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/utils/webutil/util.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2340">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1199">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#14#211#0" expanded="true" />
+            <element signature="e#13#93#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/buildin/main.go">
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/app/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+        <state relative-caret-position="728">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
           <folding>
-            <element signature="e#14#37#0" expanded="true" />
+            <element signature="e#13#219#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/error/main.go">
+    <entry file="file://$PROJECT_DIR$/myapps/gii-helper/cmd/gii-web/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="699">
+          <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/error/example/demo1.go">
+    <entry file="file://$PROJECT_DIR$/stdlib/strings/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/awesomelib/viper/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/channel-demo1/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="7" column="83" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/terminals/pty/pty-v0/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/terminals/pty/cmds/shuffle.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        <state relative-caret-position="439">
+          <caret line="215" column="39" selection-start-line="215" selection-start-column="39" selection-end-line="215" selection-end-column="39" />
           <folding>
-            <element signature="e#14#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/terminals/pty/cmds/print-file.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-107">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="e#14#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/terminals/pty/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="37" lean-forward="true" selection-end-line="63" />
-          <folding>
-            <element signature="e#14#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/terminals/ptyv2/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding>
-            <element signature="e#14#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/terminals/ptyv2/pkg/cmd.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/terminals/ptyv2/registry/cmd.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="e#18#73#0" expanded="true" />
+            <element signature="e#14#60#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -76,19 +76,19 @@ func (itr *DBInteractor) GetColumnsForTable(name string) (map[string]*MyColumn, 
 
 		// for i, t := range tables {
 		/*
-					log.Printf("\n <--    table:%d    \t name: %s    --> \n", i, tbl.Name)
-					colSeq, cols, err := dlc.GetColumns(tbl.Name)
-					if err != nil {
-		   return nil , err
-		}
-					PrettyPrint(colSeq)
-					for nm, col := range cols {
-						// PrettyPrint(col)
-						fmt.Printf("\n\n name: %s  \t sql-type: %s  \t go-type: %s \n",
-							nm,
-							col.SQLType.Name,
-							core.SQLType2Type(col.SQLType).Name())
-					}
+						log.Printf("\n <--    table:%d    \t name: %s    --> \n", i, tbl.Name)
+						colSeq, cols, err := dlc.GetColumns(tbl.Name)
+						if err != nil {
+			   return nil , err
+			}
+						PrettyPrint(colSeq)
+						for nm, col := range cols {
+							// PrettyPrint(col)
+							fmt.Printf("\n\n name: %s  \t sql-type: %s  \t go-type: %s \n",
+								nm,
+								col.SQLType.Name,
+								core.SQLType2Type(col.SQLType).Name())
+						}
 		*/
 		if t.Name == name {
 			tbl = t
@@ -132,4 +132,9 @@ func (itr *DBInteractor) GetColumnsForTable(name string) (map[string]*MyColumn, 
 
 	return results, nil //cols
 
+}
+
+func genDescription(col core.Column) string {
+	_ = col
+	return ""
 }

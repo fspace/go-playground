@@ -3,8 +3,10 @@ package webutil
 import (
 	"encoding/json"
 	"encoding/xml"
+	"html/template"
 	"io/ioutil"
 	"net/http"
+	"path/filepath"
 	"strconv"
 )
 
@@ -93,4 +95,13 @@ func ServeFormatted(w http.ResponseWriter, r *http.Request, v interface{}) {
 	}
 
 	return
+}
+
+func DisplayWithFuncs(w http.ResponseWriter, funcs template.FuncMap, d map[string]interface{}, tpls ...string) {
+	if len(tpls) == 0 {
+		return
+	}
+	name := filepath.Base(tpls[0])
+	t := template.Must(template.New(name).Funcs(funcs).ParseFiles(tpls...))
+	t.ExecuteTemplate(w, name, d)
 }

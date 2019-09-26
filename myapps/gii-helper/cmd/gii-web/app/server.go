@@ -134,3 +134,12 @@ func (th *timeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	tm := time.Now().Format(th.format)
 	w.Write([]byte("The time is: " + tm))
 }
+
+// 更聪明的做法：
+func timeHandler2(format string) http.Handler {
+	fn := func(w http.ResponseWriter, r *http.Request) {
+		tm := time.Now().Format(format)
+		w.Write([]byte("The time is: " + tm))
+	}
+	return http.HandlerFunc(fn)
+}

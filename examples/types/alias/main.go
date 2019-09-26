@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// @see https://colobu.com/2017/06/26/learn-go-type-aliases/  rpcx作者：https://github.com/smallnest/rpcx
 // ## 类型别名和原类型完全一样，只不过是另一种叫法而已
 // 完全一样(identical types)意味着这两种类型的数据可以互相赋值，而类型定义要和原始类型赋值的时候需要类型转换(ConversionT(x))。
 
@@ -82,7 +83,7 @@ func role1() {
 		Name: "yiqing",
 		Age:  18,
 	}
-	etr := Eater{User: u}
+	etr := Eater{User: u} // 相当于角色绑定
 	etr.Eat()
 }
 
