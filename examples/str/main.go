@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"unicode/utf8"
 	"unsafe"
 )
 
@@ -21,7 +22,7 @@ func t1() {
 	fmt.Println("len(s2):", (*reflect.StringHeader)(unsafe.Pointer(&s2)).Len) // 5
 }
 
-func t2()  {
+func t2() {
 	fmt.Printf("%#v\n", []byte("Hello, 世界"))
 
 	fmt.Println("\xe4\xb8\x96") // 打印: 世
@@ -34,18 +35,18 @@ func t2()  {
 		fmt.Println(i, c)
 	}
 	/*
-	// 0 65533 // \uFFFD, 对应 �
-	// 1 0 // 空字符
-	// 2 0 // 空字符
-	// 3 30028 // 界
-	// 6 97 // a
-	// 7 98 // b
-	// 8 99 // c
-	 */
-	 // 遍历
-	 for i, c := range []byte("世界abc"){
-	 	fmt.Println(i, c)
-	 }
+		// 0 65533 // \uFFFD, 对应 �
+		// 1 0 // 空字符
+		// 2 0 // 空字符
+		// 3 30028 // 界
+		// 6 97 // a
+		// 7 98 // b
+		// 8 99 // c
+	*/
+	// 遍历
+	for i, c := range []byte("世界abc") {
+		fmt.Println(i, c)
+	}
 
 	// 或者是采用传统的下标方式遍历字符串的字节数组：
 	const s = "\xe4\x00\x00\xe7\x95\x8cabc"
@@ -54,13 +55,21 @@ func t2()  {
 	}
 }
 
-func t3()  {
+func t3() {
 	fmt.Printf("%#v\n", []rune("世界"))
 	fmt.Printf("%#v\n", string([]rune{'世', '界'})) // 世界
 }
 
 func main() {
-	t1()
-	t2()
-	t3()
+	//t1()
+	//t2()
+	//t3()
+	t5()
+}
+
+// rune 与 len 统计数的区别
+func t5() {
+	s := "hello世界"
+	fmt.Println(len(s))
+	fmt.Println(utf8.RuneCount([]byte(s)))
 }
