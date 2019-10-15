@@ -27,6 +27,30 @@ func main() {
 		FilterCond("some input exist!", cond1),
 	}
 	fmt.Println(andCond1.ToSql())
+	//
+	users := squirrel.Select("*").From("user")
+	active := users.Where(squirrel.Eq{"deleted_at": nil})
+	children := active.Where(squirrel.Lt{"age": 15})
+	sql, args, err := children.ToSql()
+	fmt.Println(sql, args, err)
+
+	//
+	b2 := squirrel.Update("user").
+		SetMap(squirrel.Eq{"Name": "yiqing2"}).
+		Where(squirrel.Eq{"id": 2})
+	fmt.Println(b2.ToSql())
+
+	b3 := squirrel.Delete("").
+		Prefix("WITH prefix AS ?", 0).
+		From("a").
+		Where("b = ?", 1).
+		OrderBy("c").
+		Limit(2).
+		Offset(3).
+		Suffix("RETURNING ?", 4)
+
+	// sql, args, err := b3.ToSql()
+	fmt.Println(b3.ToSql())
 }
 
 func FilterCond(by interface{}, cond squirrel.Sqlizer) squirrel.Sqlizer {
