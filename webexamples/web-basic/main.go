@@ -93,6 +93,10 @@ Name: {{$name}}
 	http.HandleFunc("/xss", templatedemo.XssDemo)
 	http.HandleFunc("/xss2", templatedemo.XssDemo2)
 
+	http.HandleFunc("/safe-html", templatedemo.SafeHtmlDemo)
+	http.HandleFunc("/bluemonday", templatedemo.BluemondayDemo())
+	http.HandleFunc("/deli", templatedemo.DelimsDemo)
+
 	log.Println("Starting HTTP server...")
 	log.Fatal(http.ListenAndServe("localhost:4000", nil))
 }
