@@ -79,6 +79,8 @@ Name: {{$name}}
 	http.HandleFunc("/range", rangeDemo)
 	http.HandleFunc("/map", mapDemo)
 	http.HandleFunc("/with", withDemo)
+	http.HandleFunc("/scope", withScope)
+	http.HandleFunc("/func", tplFuncDemo)
 
 	log.Println("Starting HTTP server...")
 	log.Fatal(http.ListenAndServe("localhost:4000", nil))
@@ -266,6 +268,71 @@ blank
 			Quantity:  666,
 		},
 	})
+	if err != nil {
+		fmt.Fprintf(w, "Execute: %v", err)
+		return
+	}
+}
+
+func withScope(w http.ResponseWriter, r *http.Request) {
+	// 创建模板对象并解析模板内容
+	tmpl, err := template.New("test").Parse(`
+{{$name1 := "alice"}}
+name1: {{$name1}}
+{{with true}}
+	{{$name1 = "alice2"}}
+	{{$name2 := "bob"}}
+	name2: {{$name2}}
+{{end}}
+name1 after with: {{$name1}}
+
+`)
+
+	// 注意同上例的细微区别 :=   =
+	tmpl, err = template.New("test").Parse(`
+{{$name1 := "alice"}}
+name1: {{$name1}}
+{{with true}}
+	{{$name1 := "alice2"}}
+	{{$name2 := "bob"}}
+	name1 in with: {{$name1}}
+	name2: {{$name2}}
+{{end}}
+name1 after with: {{$name1}}
+`)
+
+	if err != nil {
+		fmt.Fprintf(w, "Parse: %v", err)
+		return
+	}
+
+	// 调用模板对象的渲染方法
+	err = tmpl.Execute(w, nil)
+	if err != nil {
+		fmt.Fprintf(w, "Execute: %v", err)
+		return
+	}
+}
+
+func tplFuncDemo(w http.ResponseWriter, r *http.Request) {
+	// 创建模板对象并添加自定义模板函数
+	tmpl := template.New("test").Funcs(template.FuncMap{
+		"add": func(a, b int) int {
+			return a + b
+		},
+	})
+
+	// 解析模板内容
+	_, err := tmpl.Parse(`
+result: {{add 1 2}}
+`)
+	if err != nil {
+		fmt.Fprintf(w, "Parse: %v", err)
+		return
+	}
+
+	// 调用模板对象的渲染方法
+	err = tmpl.Execute(w, nil)
 	if err != nil {
 		fmt.Fprintf(w, "Execute: %v", err)
 		return
