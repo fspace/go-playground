@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"github.com/fatih/structs"
 	"github.com/imdario/mergo" // 相当好用的库 被多个著名项目使用哦  用法如： https://github.com/godep-migrator/rigger-host/blob/master/host/config.go
+	"playgo/webexamples/web-basic/lib/templatedemo"
 	"strconv"
+	"strings"
 
 	//"github.com/mitchellh/mapstructure"
 	"log"
@@ -81,6 +83,15 @@ Name: {{$name}}
 	http.HandleFunc("/with", withDemo)
 	http.HandleFunc("/scope", withScope)
 	http.HandleFunc("/func", tplFuncDemo)
+	http.HandleFunc("/pipeline", tplFuncPipelineDemo)
+	http.HandleFunc("/pipeline2", tplFuncPipelineDemo2)
+	http.HandleFunc("/tpl-reuse", tplReuse)
+	http.HandleFunc("/local-tpl", localTpl())
+	http.HandleFunc("/home", localTplHome())
+	http.HandleFunc("/text-tpl", templatedemo.TextTemplateDemo)
+
+	http.HandleFunc("/xss", templatedemo.XssDemo)
+	http.HandleFunc("/xss2", templatedemo.XssDemo2)
 
 	log.Println("Starting HTTP server...")
 	log.Fatal(http.ListenAndServe("localhost:4000", nil))
@@ -336,6 +347,175 @@ result: {{add 1 2}}
 	if err != nil {
 		fmt.Fprintf(w, "Execute: %v", err)
 		return
+	}
+}
+func tplFuncPipelineDemo(w http.ResponseWriter, r *http.Request) {
+	// 创建模板对象并添加自定义模板函数
+	tmpl := template.New("test").Funcs(template.FuncMap{
+		"add2": func(a int) int {
+			return a + 2
+		},
+	})
+
+	// 解析模板内容
+	_, err := tmpl.Parse(`
+result: {{add2 0 | add2 | add2}}
+`)
+	if err != nil {
+		fmt.Fprintf(w, "Parse: %v", err)
+		return
+	}
+
+	// 调用模板对象的渲染方法
+	err = tmpl.Execute(w, nil)
+	if err != nil {
+		fmt.Fprintf(w, "Execute: %v", err)
+		return
+	}
+}
+func tplFuncPipelineDemo2(w http.ResponseWriter, r *http.Request) {
+	// 创建模板对象并添加自定义模板函数
+	tmpl := template.New("test").Funcs(template.FuncMap{
+		"add": func(a, b int) int {
+			return a + b
+		},
+	})
+
+	// 解析模板内容
+	_, err := tmpl.Parse(`
+result: {{add 1 3 | add 2 | add 2}}
+`)
+	if err != nil {
+		fmt.Fprintf(w, "Parse: %v", err)
+		return
+	}
+
+	// 调用模板对象的渲染方法
+	err = tmpl.Execute(w, nil)
+	if err != nil {
+		fmt.Fprintf(w, "Execute: %v", err)
+		return
+	}
+}
+func tplReuse(w http.ResponseWriter, r *http.Request) {
+	/**
+		   - 通过 Funcs 方法添加了名为 join 模板函数，其实际上就是调用 strings.Join
+	  	   - 通过 define "<名称>" 的语法定义了一个非常简单的局部模板，即以根对象 . 作为参数调用 join 模板函数
+		   - 通过 template "<名称>" <参数> 的语法，调用名为 list 的局部模板，并将 .names 作为参数传递进去（传递的参数会成为局部模板的根对象）
+	*/
+
+	// 创建模板对象并添加自定义模板函数
+	tmpl := template.New("test").Funcs(template.FuncMap{
+		"join": strings.Join,
+	})
+
+	// 解析模板内容
+	_, err := tmpl.Parse(`
+{{define "list"}}
+    {{join . ", "}}
+{{end}}
+Names: {{template "list" .names}}
+`)
+	if err != nil {
+		fmt.Fprintf(w, "Parse: %v", err)
+		return
+	}
+
+	// 调用模板对象的渲染方法
+	err = tmpl.Execute(w, map[string]interface{}{
+		"names": []string{"Alice", "Bob", "Cindy", "David"},
+	})
+	if err != nil {
+		fmt.Fprintf(w, "Execute: %v", err)
+		return
+	}
+}
+
+// 本地模板文件
+func localTplHome() http.HandlerFunc {
+	// The name of the template is the bare filename of the template, not the complete path Execute will execute the
+	// default template provided it’s named to match.
+	// 模板默认名称是第一个参数的文件名（非文件全路径 只是取裸名称 具体细节可以看源码) 如果多个模板文件同名那么采用后者 前面的被“遮盖"
+
+	// 创建模板对象并解析模板内容
+	tmpl, err := template.ParseFiles("views/_base.tmpl", "views/home.html") // 接受多个模板文件哦 模板文件间的关系可以是 Master-nest之类
+	if err != nil {
+		log.Fatalf("Parse: %v", err)
+	}
+	log.Println("模板文件名称：", tmpl.Name())
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		// 渲染指定模板的内容
+		err = tmpl.ExecuteTemplate(w, "_base.tmpl", map[string]interface{}{
+			"names": []string{"Alice", "Bob", "Cindy", "David"},
+		})
+
+		if err != nil {
+			fmt.Fprintf(w, "Execute: %v", err)
+			return
+		}
+	}
+}
+func localTpl() http.HandlerFunc {
+	// 创建模板对象并解析模板内容
+	tmpl, err := template.ParseFiles("views/template_local.tmpl") // 接受多个模板文件哦 模板文件间的关系可以是 Master-nest之类
+	if err != nil {
+		log.Fatalf("Parse: %v", err)
+	}
+
+	return func(w http.ResponseWriter, r *http.Request) {
+		// 调用模板对象的渲染方法
+		err = tmpl.Execute(w, map[string]interface{}{
+			"names": []string{"Alice", "Bob", "Cindy", "David"},
+		})
+		//      // 渲染指定模板的内容
+		//		err = tmpl.ExecuteTemplate(w, "template_local.tmpl", map[string]interface{}{
+		//			"names": []string{"Alice", "Bob", "Cindy", "David"},
+		//		})
+
+		if err != nil {
+			fmt.Fprintf(w, "Execute: %v", err)
+			return
+		}
+	}
+}
+func localTpl2() http.HandlerFunc {
+
+	/**
+		注意：
+
+	   - 函数的注入，必须要在parseFiles之前，因为解析模板的时候，需要先把函数编译注入。
+	   - Template object can have multiple templates in it and each one has a name. If you look at the implementation of
+		ParseFiles, you see that it uses the filename as the template name inside of the template object.
+		So, name your file the same as the template object, (probably not generally practical) or else use ExecuteTemplate instead of just Execute.
+	   - The name of the template is the bare filename of the template, not the complete path。如果模板名字写错了，
+		执行的时候会出现：”**” is an incomplete or empty template
+		————————————————————————————————————————————————————————————————
+		原文链接：https://blog.csdn.net/wj199395/article/details/75040723
+	*/
+
+	// 注册模板函数
+	// 创建模板对象并添加自定义模板函数
+	tmpl := template.New("template_local.tmpl").Funcs(template.FuncMap{
+		"join": strings.Join,
+	})
+	// 创建模板对象并解析模板内容
+	//tmpl, err := template.ParseFiles("views/template_local.tmpl")
+	tmpl, err := tmpl.ParseFiles("views/template_local.tmpl")
+
+	if err != nil {
+		log.Fatalf("Parse: %v", err)
+	}
+
+	return func(w http.ResponseWriter, r *http.Request) {
+		// 调用模板对象的渲染方法
+		err = tmpl.Execute(w, map[string]interface{}{
+			"names": []string{"Alice", "Bob", "Cindy", "David"},
+		})
+		if err != nil {
+			fmt.Fprintf(w, "Execute: %v", err)
+			return
+		}
 	}
 }
 
