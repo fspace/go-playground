@@ -47,4 +47,22 @@ func toStrDemo2() {
 func main() {
 	toStrDemo1()
 	toStrDemo2()
+
+	typeConvert()
+}
+
+func typeConvert() {
+	var i float32 = 42.5
+	fmt.Printf("%v , %T \n ", i, i)
+
+	var j int
+	j = int(i) /// 截断
+	fmt.Printf("%v, %T \n", j, j)
+
+	var s string
+	s = string(j) // int 转string！  这个转为42所代表的utf8码点了
+	fmt.Printf("%v, %T \n", s, s)
+
+	s = strconv.Itoa(j) // 使用包转为字面量
+	fmt.Printf("%v, %T \n", s, s)
 }
