@@ -42,6 +42,36 @@ func strDemo2() {
 }
 
 func main() {
-	strDemo1()
-	strDemo2()
+	//strDemo1()
+	//strDemo2()
+	strDemo()
+	strOps()
+
+	conv()
+
+	zeroVal()
+}
+
+func strDemo() {
+	s := "this is a string"
+	fmt.Printf("%v, %T \n", s, s)
+	fmt.Printf("%v, %T \n", s[2], s[2])         // byte类型  unit8 是别名
+	fmt.Printf("%v, %T \n", string(s[2]), s[2]) // 转型
+}
+
+func strOps() {
+	s := "this is a string"
+	s2 := "this is also a string"
+	fmt.Printf("%v, %T\n", s+s2, s+s2)
+}
+
+func conv() {
+	s := "this is a string"
+	b := []byte(s)
+	fmt.Printf("%v, %T\n", b, b)
+}
+
+func zeroVal() {
+	var s string
+	fmt.Printf("%v, %T\n", s, s)
 }
