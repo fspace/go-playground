@@ -39,6 +39,7 @@ func basic() {
 
 	// structInfo(&aDoctor)
 	structInfo(aDoctor)
+	// 匿名结构体一般用于变量生命周期比较短的场景 比如 json序列化输出 临时中间转换存储
 	// 匿名struct
 	s := struct {
 		name string

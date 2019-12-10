@@ -46,6 +46,7 @@ func basicDemo() {
 	}
 	// 仅仅为了检测存在性 可以忽略第一个值
 	k := "SomeKey"
+	// Check for presence with "val, ok " form of result
 	_, present := statePopulations[k]
 	if present {
 		fmt.Println("exists : ", k)
