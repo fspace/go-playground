@@ -5,3 +5,4 @@
 
 ## 任务构建
 - https://github.com/go-task/task
+- https://github.com/magefile/mage

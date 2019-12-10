@@ -30,3 +30,7 @@ baby := newBaby("john")
 newTeenager := NewPersonFactory(16)
 teen := newTeenager("jill")
 ~~~
+
+
+## 参考：
+- https://github.com/darkhelmet/balance/blob/master/backends/backends.go

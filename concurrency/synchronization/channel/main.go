@@ -42,3 +42,25 @@ func oneWay() {
 	s, r := (chan<- int)(a), (<-chan int)(a)
 	fmt.Printf("%T - %T", s, r)
 }
+
+// -----------------------------------------------------------------
+func oneWay2() {
+	var a = make(chan int)
+	// 自动转型为单向channel
+	go send(a, 10)
+	receive(a)
+}
+func send(ch chan<- int, max int) {
+	for i := 0; i < max; i++ {
+		ch <- i
+	}
+	close(ch)
+}
+
+func receive(ch <-chan int) {
+	for v := range ch {
+		fmt.Println(v)
+	}
+}
+
+// -----------------------------------------------------------------

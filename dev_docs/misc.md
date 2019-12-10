@@ -14,3 +14,8 @@ https://github.com/polaris1119/golangweekly
 
 ## 专题：
 goroutine : https://qcrao.com/2019/09/06/go-scheduler-state-diagram-of-gpm/
+- https://mp.weixin.qq.com/s?__biz=MjM5MDUwNTQwMQ==
+
+
+## 库
+- 工具库： https://github.com/kakuilan/kgo

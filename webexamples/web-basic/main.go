@@ -443,6 +443,9 @@ func localTplHome() http.HandlerFunc {
 
 	// 创建模板对象并解析模板内容
 	tmpl, err := template.ParseFiles("views/_base.tmpl", "views/home.html") // 接受多个模板文件哦 模板文件间的关系可以是 Master-nest之类
+
+	// template.ParseGlob(pattern)会根据pattern解析所有匹配的模板并保存。
+
 	if err != nil {
 		log.Fatalf("Parse: %v", err)
 	}

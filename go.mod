@@ -10,8 +10,11 @@ require (
 	github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20190717042225-c3de453c63f4 // indirect
+	github.com/allegro/bigcache v1.2.1 // indirect
 	github.com/asaskevich/EventBus v0.0.0-20180315140547-d46933a94f05
+	github.com/chromedp/chromedp v0.5.2 // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
+	github.com/d4l3k/go-pry v0.0.0-20181122210047-3e3af674fe57 // indirect
 	github.com/davecgh/go-spew v1.1.1
 	github.com/didi/gendry v1.3.1 // indirect
 	github.com/doug-martin/goqu v5.0.0+incompatible // indirect
@@ -30,6 +33,7 @@ require (
 	github.com/grsmv/inflect v0.0.0-20140723132642-a28d3de3b3ad // indirect
 	github.com/hnakamur/jsonpreprocess v0.0.0-20171017030034-a4e954386171 // indirect
 	github.com/huandu/xstrings v1.2.0 // indirect
+	github.com/imdario/mergo v0.3.8 // indirect
 	github.com/integrii/flaggy v1.2.2 // indirect
 	github.com/jedib0t/go-pretty v4.2.1+incompatible
 	github.com/jinzhu/configor v1.1.1
@@ -38,9 +42,14 @@ require (
 	github.com/kataras/go-events v0.0.2 // indirect
 	github.com/lalamove/konfig v0.7.2 // indirect
 	github.com/lib/pq v1.2.0
+	github.com/mattn/go-tty v0.0.0-20190424173100-523744f04859 // indirect
 	github.com/mediocregopher/radix/v3 v3.3.2 // indirect
+	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b // indirect
 	github.com/micro/go-micro v1.7.0 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.2
 	github.com/moul/http2curl v1.0.0 // indirect
+	github.com/mustafaturan/bus v0.1.3 // indirect
+	github.com/mustafaturan/monoton v0.4.0 // indirect
 	github.com/orcaman/concurrent-map v0.0.0-20190826125027-8c72a8bb44f6 // indirect
 	github.com/parnurzeal/gorequest v0.2.15 // indirect
 	github.com/pkg/errors v0.8.1
@@ -56,6 +65,7 @@ require (
 	github.com/tealeg/xlsx v1.0.3 // indirect
 	github.com/tidwall/gjson v1.3.2 // indirect
 	github.com/urfave/cli v1.20.0 // indirect
+	github.com/vburenin/ifacemaker v1.1.0 // indirect
 	go.uber.org/dig v1.7.0 // indirect
 	go.uber.org/fx v1.9.0 // indirect
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
