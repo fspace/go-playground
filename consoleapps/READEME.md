@@ -2,6 +2,8 @@
 
 - https://github.com/urfave/cli
 - https://github.com/alecthomas/kingpin
+- https://github.com/mitchellh/cli (很多出名的go工具都使用此库 https://github.com/hashicorp)
+- https://github.com/jawher/mow.cli
 - https://github.com/c-bata/go-prompt
 - https://github.com/mkideal/cli  (还不错 国人的)
 - https://github.com/tj/go-tea  
