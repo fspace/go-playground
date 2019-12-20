@@ -12,6 +12,8 @@ https://github.com/fraenky8/tables-to-go
 
 https://github.com/xxjwxc/gormt
 
+https://github.com/xo/xo
+
 ### 如何开发web程序
 https://www.alexedwards.net/blog/a-recap-of-request-handling
 
