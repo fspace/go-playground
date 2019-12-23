@@ -6,6 +6,8 @@
 ## 资料参考
 - [Go文件操作大全 ](https://colobu.com/2016/10/12/go-file-operations/)
 - [Go 夜读](https://github.com/developer-learning/night-reading-go)
+- [Training for Golang (go language) ](https://github.com/GoesToEleven/GolangTraining)
+- [go web 开发 ](https://github.com/GoesToEleven/golang-web-dev)
 
 ## 项目结构
 - [go-project-blueprint](https://github.com/MartinHeinz/go-project-blueprint)
