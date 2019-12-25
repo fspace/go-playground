@@ -51,6 +51,8 @@ type actionCmdInfo struct {
 var actionCommands map[string]actionCmdInfo
 
 func registerActionCMDFunc(k string, cmdInfo actionCmdInfo) {
+	// 签名参数也可以改为 k string desc string, cmdFn func() 三个参数 这样actionCmdInfo类型就不必让使用者知道了！
+
 	if actionCommands == nil {
 		actionCommands = make(map[string]actionCmdInfo)
 	}
