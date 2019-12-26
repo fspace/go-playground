@@ -20,5 +20,8 @@ func realMain() (exitCode int) {
 		}
 	}()
 
+	fmt.Println("hi  this is fun cli app!")
+	panic("hi panic from lalallala ...")
+
 	return
 }
