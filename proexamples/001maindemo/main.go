@@ -20,6 +20,15 @@ func realMain() (exitCode int) {
 		}
 	}()
 
+	// @see Gosora
+	//defer func() {
+	//	if r := recover(); r != nil {
+	//		fmt.Println(r)
+	//		debug.PrintStack()
+	//		return
+	//	}
+	//}()
+
 	fmt.Println("hi  this is fun cli app!")
 	panic("hi panic from lalallala ...")
 
