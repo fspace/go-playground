@@ -9,6 +9,9 @@
 - [Training for Golang (go language) ](https://github.com/GoesToEleven/GolangTraining)
 - [go web 开发 ](https://github.com/GoesToEleven/golang-web-dev)
 
+### 个人博客
+- [清晰架构（Clean Architecture）的Go微服务: 日志管理](https://segmentfault.com/a/1190000021479989)
+
 ## 项目结构
 - [go-project-blueprint](https://github.com/MartinHeinz/go-project-blueprint)
 
@@ -20,6 +23,10 @@
 ## 内存相关
 - http://dmitrysoshnikov.com/compilers/writing-a-memory-allocator/
 - http://lessisbetter.site/2019/07/06/go-memory-allocation/
+
+## 设计提高篇
+- https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis
+- https://dave.cheney.net/2016/06/12/stack-traces-and-the-errors-package 错误处理
 
 ## 任务构建
 - https://github.com/go-task/task
