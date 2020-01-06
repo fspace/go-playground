@@ -9,6 +9,8 @@ func main() {
 	bitOps()
 
 	zeroVal()
+
+	ConversionOfTypes()
 }
 
 func intDemo() {
@@ -42,4 +44,31 @@ func bitOps() {
 func zeroVal() {
 	var n int
 	fmt.Printf("%v, %T \n", n, n)
+}
+
+// 边界溢出
+func overflowsBboundary() {
+	fmt.Println("Hello World")
+
+	var myint int8
+	for i := 0; i < 129; i++ {
+		myint += 1
+	}
+	fmt.Println(myint) // prints out -127
+}
+
+func ConversionOfTypes() {
+	var men uint8
+	men = 5
+	var women int16
+	women = 6
+
+	//var people int
+	//// this throws a compile error
+	//people = men + women
+	// this handles converting to a standard format
+	// and is legal within your go programs
+	people := int(men) + int(women)
+
+	fmt.Println("people: ", people)
 }

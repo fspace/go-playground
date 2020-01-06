@@ -40,6 +40,10 @@ func main() {
 	//floatDemo()
 	fltDemo2()
 	fltOps()
+
+	maxFloat()
+
+	converting()
 }
 
 func fltDemo2() {
@@ -61,4 +65,27 @@ func fltOps2() {
 	//a := 10.2
 	//b := 3.7
 	//fmt.Println(math.)
+}
+
+// 边界值
+func maxFloat() {
+	var maxFloat32 float32
+	maxFloat32 = 16777216
+	fmt.Println(maxFloat32 == maxFloat32+10) // you would typically expect this to return false
+	// it returns true
+	fmt.Println(maxFloat32 + 10)      // 16777216
+	fmt.Println(maxFloat32 + 2000000) // 16777216
+}
+
+// 类型转换
+func converting() {
+	// converting from int to float
+	var myint int
+	myfloat := float64(myint)
+	fmt.Println("myfloat: ", myfloat)
+
+	// converting from float to int
+	var myfloat2 float64
+	myint2 := int(myfloat2)
+	fmt.Println("myint2: ", myint2)
 }

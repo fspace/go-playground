@@ -20,6 +20,8 @@ func main() {
 
 	// 零值
 	zeroVal()
+
+	operators()
 }
 
 func boolDemo2() {
@@ -33,4 +35,22 @@ func boolDemo2() {
 func zeroVal() {
 	var n bool
 	fmt.Printf("%v , %T\n", n, n)
+}
+
+func operators() {
+	// bool 型可用的逻辑操作符 （与或非）
+	var isTrue bool = true
+	var isFalse bool = false
+	// AND
+	if isTrue && isFalse {
+		fmt.Println("Both Conditions need to be True")
+	}
+	// OR - not exclusive
+	if isTrue || isFalse {
+		fmt.Println("Only one condition needs to be True")
+	}
+
+	if !isFalse {
+		fmt.Println("is not false means: ", !isFalse)
+	}
 }
