@@ -6,6 +6,8 @@ import (
 	"os"
 )
 
+// Maps are Go’s representation of hash tables, a data structure that allows you to map one arbitrary data type to another.
+
 func main() {
 	//basic2()
 	//ptrArray()
@@ -18,17 +20,26 @@ func realmain() {
 	// Declare command, which is invocable with "uman info"
 	app.Command("demo1", "map 变量的引用复制", cli.ActionCommand(assignment))
 
-
 	// ---------------------------------------------------------------------------------------------
 	// With the app configured, execute it, passing in the os.Args array
 	app.Run(os.Args)
 }
 
 // ==============================================================================
-func assignment()  {
-	a := map[string]string{"foo": "bar", "baz":"buz"}
+func assignment() {
+	a := map[string]string{"foo": "bar", "baz": "buz"}
 	b := a // 引用复制
-	fmt.Println(a , b)
+	fmt.Println(a, b)
 	a["foo"] = "qux"
 	fmt.Println(a, b)
+}
+
+func creation() {
+	youtubeSubscribers := map[string]int{
+		"TutorialEdge":     2240,
+		"MKBHD":            6580350,
+		"Fun Fun Function": 171220,
+	}
+
+	fmt.Println(youtubeSubscribers["MKBHD"])
 }
