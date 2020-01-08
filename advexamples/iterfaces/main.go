@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/jawher/mow.cli"
+	"github.com/kr/pretty"
 	"io"
 	"os"
 )
@@ -20,6 +21,9 @@ func realMain() (exitCode int) {
 	app.Command("tc", "type conversion", cli.ActionCommand(typeConversions))
 	app.Command("ei", "empty interfaces", cli.ActionCommand(emptyInterface))
 	app.Command("ts", "type switches", cli.ActionCommand(typeSwitches))
+
+	app.Command("eip", "empty Interface Param", cli.ActionCommand(emptyInterfaceParam))
+	app.Command("di", "defining Interfaces", cli.ActionCommand(definingInterfaces))
 
 	// ---------------------------------------------------------------------------------------------
 	// With the app configured, execute it, passing in the os.Args array
@@ -173,4 +177,62 @@ func implWithPointers() {
 
 func bestPractices() {
 
+}
+
+// ---------------
+
+func myFunc(a interface{}) {
+	fmt.Println(a)
+}
+
+func emptyInterfaceParam() {
+	/**\
+	By defining a function that takes in an interface{}, we essentially give ourselves the flexibility to pass in
+	anything we want. It’s a Go programmers way of saying, this function takes in something, but I don’t necessarily
+	care about its type.
+	*/
+	var my_age int
+	my_age = 25
+
+	myFunc(my_age)
+}
+
+// ----------------------------------------------------------------------------------
+
+type Guitarist interface {
+	// PlayGuitar prints out "Playing Guitar"
+	// to the terminal
+	PlayGuitar()
+}
+
+type BaseGuitarist struct {
+	Name string
+}
+
+type AcousticGuitarist struct {
+	Name string
+}
+
+func (b BaseGuitarist) PlayGuitar() {
+	fmt.Printf("%s plays the Bass Guitar\n", b.Name)
+}
+
+func (b AcousticGuitarist) PlayGuitar() {
+	fmt.Printf("%s plays the Acoustic Guitar\n", b.Name)
+}
+
+// ----------------------------------------------------------------------------------
+func definingInterfaces() {
+	var player BaseGuitarist
+	player.Name = "Paul"
+	player.PlayGuitar()
+
+	var player2 AcousticGuitarist
+	player2.Name = "Ringo"
+	player2.PlayGuitar()
+
+	var guitarists []Guitarist
+	guitarists = append(guitarists, player)
+	guitarists = append(guitarists, player2)
+	pretty.Print(guitarists)
 }
