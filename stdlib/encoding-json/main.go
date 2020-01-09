@@ -32,6 +32,8 @@ func realMain() (exitCode int) {
 /**
 We could either unmarshal the JSON using a set of predefined structs,
 or we could unmarshal the JSON using a map[string]interface{} to parse our JSON into strings mapped against arbitrary data types.
+
+NOTE:  It is typically recommended to try and define the structs, if you happen to know the structure of the data coming back.
 */
 
 // ==============================================================================
