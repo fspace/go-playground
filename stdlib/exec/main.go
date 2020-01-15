@@ -75,3 +75,6 @@ func execute2() {
 	output := string(out[:])
 	fmt.Println(output)
 }
+
+// ==================================
+// ## TODO https://github.com/fatih/gomodifytags 试着用命令行风格执行下 然后通过api暴露给其他语言（比如yii gii）
