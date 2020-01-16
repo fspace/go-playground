@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/jawher/mow.cli"
 	"os"
+	"playgo/pkg/models"
 )
 import "reflect"
 
@@ -24,6 +25,8 @@ func realMain() (exitCode int) {
 
 	app.Command("it", "Implements Type", cli.ActionCommand(ImplementsType))
 	app.Command("if", "invoke Func", cli.ActionCommand(invokeFunc))
+
+	app.Command("ds", "demo Struct: 结构体的反射", cli.ActionCommand(demoStruct))
 
 	// ---------------------------------------------------------------------------------------------
 	// With the app configured, execute it, passing in the os.Args array
@@ -126,4 +129,35 @@ func invokeFunc() {
 		return
 	}
 	fmt.Println(result[0].Int()) // #=> 1
+}
+
+// ===================================================================
+// ### https://studygolang.com/articles/25982
+func demoStruct() {
+	data := models.Person{
+		Name: "yiqing",
+		Age:  18,
+	}
+
+	rt := reflect.TypeOf(data)
+	rv := reflect.ValueOf(data)
+
+	//遍历结构体的Field
+	for i := 0; i < rt.NumField(); i++ {
+		ft := rt.Field(i) //第i个Field的StructField
+		fv := rv.Field(i) //第i个Field的Value
+
+		fmt.Printf("field idx:%d tpy:%s nm:%s \n", i, ft.Type.Name(), ft.Name)
+		fmt.Printf("field idx:%d val:%#v \n", i, fv.Interface())
+
+	}
+
+	//遍历结构体的方法 结构体 跟结构体指针不一样的！
+	for i := 0; i < rt.NumMethod(); i++ {
+		mt := rt.Method(i) //第i个方法的Method
+		mv := rv.Method(i) //第i个方法的Value
+
+		fmt.Printf("method %d Name: %s \t", i, mt.Name)
+		fmt.Printf("method %d value: %#v \t", i, mv.Interface())
+	}
 }

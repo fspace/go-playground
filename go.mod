@@ -5,6 +5,7 @@ require (
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/sprig v2.20.0+incompatible // indirect
 	github.com/Masterminds/squirrel v1.1.0 // indirect
+	github.com/ThreeDotsLabs/watermill v1.1.0 // indirect
 	github.com/abiosoft/ishell v2.0.0+incompatible // indirect
 	github.com/abiosoft/readline v0.0.0-20180607040430-155bce2042db // indirect
 	github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5 // indirect
@@ -12,6 +13,7 @@ require (
 	github.com/alecthomas/units v0.0.0-20190717042225-c3de453c63f4 // indirect
 	github.com/allegro/bigcache v1.2.1 // indirect
 	github.com/asaskevich/EventBus v0.0.0-20180315140547-d46933a94f05
+	github.com/brianvoe/gofakeit/v4 v4.2.1 // indirect
 	github.com/cheggaaa/pb/v3 v3.0.3 // indirect
 	github.com/chromedp/chromedp v0.5.2 // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
@@ -53,6 +55,7 @@ require (
 	github.com/moul/http2curl v1.0.0 // indirect
 	github.com/mustafaturan/bus v0.1.3 // indirect
 	github.com/mustafaturan/monoton v0.4.0 // indirect
+	github.com/olekukonko/tablewriter v0.0.4 // indirect
 	github.com/orcaman/concurrent-map v0.0.0-20190826125027-8c72a8bb44f6 // indirect
 	github.com/parnurzeal/gorequest v0.2.15 // indirect
 	github.com/pkg/errors v0.8.1
@@ -68,10 +71,11 @@ require (
 	github.com/tangzero/inflector v1.0.0 // indirect
 	github.com/tealeg/xlsx v1.0.3 // indirect
 	github.com/tidwall/gjson v1.3.2 // indirect
-	github.com/urfave/cli v1.20.0 // indirect
+	github.com/urfave/cli v1.22.2 // indirect
 	github.com/vburenin/ifacemaker v1.1.0 // indirect
 	go.uber.org/dig v1.7.0 // indirect
 	go.uber.org/fx v1.9.0 // indirect
+	go.uber.org/zap v1.13.0 // indirect
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/go-playground/validator.v9 v9.29.1 // indirect
 	upper.io/db.v3 v3.5.7+incompatible // indirect
