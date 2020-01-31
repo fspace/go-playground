@@ -46,10 +46,16 @@ func (h SecretTokenHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) 
 type Article struct {
 	Name       string
 	AuthorName string
+	Draft      bool
 }
 
 func (a Article) Byline() string {
 	return fmt.Sprintf("Written by %s", a.AuthorName)
+}
+
+// Multiply takes two float arguments and returns their multiplied value
+func Multiply(a, b float64) float64 {
+	return a * b
 }
 
 // ======================================================================================
@@ -197,4 +203,146 @@ func NiladicFunction() {
 		panic(err)
 	}
 
+}
+
+func TemplateConditionals() {
+	goArticle := Article{
+		Name:       "The Go html/template package",
+		AuthorName: "Mal Curtis",
+	}
+
+	tmpl, err := template.New("Foo").Parse(
+		//"{{.Name}}{{if .Draft}} (Draft){{end}}",
+		"{{.Name}}{{if .Draft}} (Draft){{else}} (Published){{end}}.",
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	err = tmpl.Execute(os.Stdout, goArticle)
+	if err != nil {
+		panic(err)
+	}
+}
+func TemplateLoopsWithRange() {
+	tmpl, err := template.New("Foo").Parse(`
+{{range .}}
+<p>{{.Name}} by {{.AuthorName}}</p>
+{{else}}
+<p>No published articles yet</p>
+{{end}}
+`)
+	if err != nil {
+		panic(err)
+	}
+	err = tmpl.Execute(os.Stdout, []Article{})
+	if err != nil {
+		panic(err)
+	}
+}
+
+func TemplatePartials() {
+	tmpl, err := template.New("Foo").Parse(`
+{{define "ArticleResource"}}
+<p>{{.Name}} by {{.AuthorName}}</p>
+{{end}}
+{{define "ArticleLoop"}}
+{{range .}}
+{{template "ArticleResource" .}}
+{{else}}
+<p>No published articles yet</p>
+{{end}}
+{{end}}
+{{template "ArticleLoop" .}}
+`)
+	// You create a named template by using the {{define "FOO"}} action in your template
+	//input. This needs to be a top-level action; in other words, not part of any other action.
+
+	// The template action can
+	//also be called from inside another template, which is the key to template reuse
+
+	// 有点类似 php中的include  或者yii中的renderPartial('_detail',[])
+
+	if err != nil {
+		panic(err)
+	}
+	err = tmpl.Execute(os.Stdout, []Article{})
+	if err != nil {
+		panic(err)
+	}
+}
+
+func TemplatePipelines() {
+	//tmpl, _ := template.New("Foo").Parse(
+	//	"Price: ${{printf \"%.2f\" .}}\n",
+	//)
+	tmpl, _ := template.New("Foo").Parse(
+		"Price: ${{. | printf \"%.2f\"}}\n ",
+	) // 	the value from one command is piped as the last argument to the next
+	/**
+	  Each command must output a single value,
+	  and an optional error as the second value. If there's an error, the template stops
+	  running and the error is returned as the response of the Execute function.
+	*/
+
+	tmpl.Execute(os.Stdout, 12.3)
+}
+
+type Product struct {
+	Price    float64
+	Quantity float64
+}
+
+func TemplatePipelines2() {
+
+	tmpl := template.New("Foo")
+	fm := template.FuncMap{
+		"multiply": Multiply,
+	}
+	tmpl.Funcs(fm)
+
+	tmpl, err := tmpl.Parse(
+		"Price: ${{ multiply .Price .Quantity | printf \"%.2f\"}}\n",
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	err = tmpl.Execute(os.Stdout, Product{
+		Price:    12.3,
+		Quantity: 2,
+	})
+	if err != nil {
+		panic(err)
+	}
+}
+
+func TemplateVariables() {
+	/**
+		Variable Scope
+	A variable is limited to the scope that it was defined in. If you create it inside an
+	if or range, it will be unavailable outside that scope.
+	*/
+
+	tmpl := template.New("Foo")
+	fm := template.FuncMap{
+		"multiply": Multiply,
+	}
+	tmpl.Funcs(fm)
+
+	tmpl, err := tmpl.Parse(
+		`{{$total := multiply .Price .Quantity}}
+Price: ${{ printf "%.2f" $total}}\n`,
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	err = tmpl.Execute(os.Stdout, Product{
+		Price:    12.3,
+		Quantity: 2,
+	})
+	if err != nil {
+		panic(err)
+	}
 }

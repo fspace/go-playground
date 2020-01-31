@@ -1,8 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/jawher/mow.cli"
+	"io/ioutil"
 	"os"
 	"playgo/books/levelup/internal/ch1"
 	"playgo/books/levelup/internal/ch2"
@@ -49,6 +51,41 @@ func realMain() (exitCode int) {
 	app.Command("ch3/hd", "HandlerDemo :   ", cli.ActionCommand(ch3.HandlerDemo))
 	app.Command("ch3/mw", "MiddlewareDemo :   ", cli.ActionCommand(ch3.MiddlewareDemo))
 	app.Command("ch3/ht", "HtmlTemplates :   ", cli.ActionCommand(ch3.HtmlTemplates))
+	app.Command("ch3/tc", "Html TemplateConditionals :   ", cli.ActionCommand(ch3.TemplateConditionals))
+	app.Command("ch3/lr", "template  LoopsWithRange :   ", cli.ActionCommand(ch3.TemplateLoopsWithRange))
+	app.Command("ch3/par", "template  reuse :   ", cli.ActionCommand(ch3.TemplatePartials))
+	app.Command("ch3/pip", "template  pipeline :   ", cli.ActionCommand(ch3.TemplatePipelines2))
+	app.Command("ch3/tv", "template  variable :   ", cli.ActionCommand(ch3.TemplateVariables))
+	app.Command("ch3/jm", "JsonMarshal :   ", cli.ActionCommand(ch3.JsonMarshal))
+	app.Command("ch3/cjk", "JsonMarshal : CustomJSONKeys  ", cli.ActionCommand(ch3.CustomJSONKeys))
+	app.Command("ch3/nt", "JsonMarshal : NestedTypes  ", cli.ActionCommand(ch3.NestedTypes))
+
+	app.Command("ch3/ut", "Unmarshaling Types  ", cli.ActionCommand(func() {
+		conf := ch3.Config{}
+		// 对于文件跟结构体失配的地方 额外key 会被忽略
+		data, err := ioutil.ReadFile("config/app.json")
+		if err != nil {
+			panic(err)
+		}
+
+		err = json.Unmarshal(data, &conf)
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Printf("Site: %s (%s)", conf.Name, conf.URL)
+
+		db := conf.Database
+		// Print out a database connection string.
+		fmt.Printf(
+			"DB: mysql://%s:%s@%s:%d/%s",
+			db.Username,
+			db.Password, db.Host,
+			db.Port,
+			db.Name,
+		)
+	}))
+	app.Command("ch3/ujs", "Unmarshaling: UnknownJSONStructure   ", cli.ActionCommand(ch3.UnknownJSONStructure))
 
 	// ---------------------------------------------------------------------------------------------
 	// With the app configured, execute it, passing in the os.Args array
