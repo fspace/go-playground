@@ -4,6 +4,7 @@
 
 
 ## 资料参考
+- https://github.com/avelino/awesome-go 优秀go项目|库
 - [Go文件操作大全 ](https://colobu.com/2016/10/12/go-file-operations/)
 - [Go 夜读](https://github.com/developer-learning/night-reading-go)
 - [Training for Golang (go language) ](https://github.com/GoesToEleven/GolangTraining)
@@ -12,6 +13,8 @@
 
 - [Building event-driven applications the easy way in Go](https://github.com/ThreeDotsLabs/watermill)
 - [Go Training Class Material ](https://github.com/ardanlabs/gotraining) 培训
+
+- https://github.com/campoy/justforfunc
 
 ### 个人博客
 - [清晰架构（Clean Architecture）的Go微服务: 日志管理](https://segmentfault.com/a/1190000021479989)
@@ -32,6 +35,9 @@
 
 ## 编译原理相关
 - https://github.com/fatih/hcl HCL Parser and Printer in Go  新版移动至： https://github.com/hashicorp/hcl
+- https://github.com/araddon/qlbridge.git
+- https://github.com/rogpeppe/godef
+- https://github.com/z7zmey/php-parser go 写的php解析器
 
 ## 设计提高篇
 - https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis
@@ -51,3 +57,46 @@
 
 ## 权限控制
 - https://github.com/oracle/speedle
+
+## 验证框架
+- https://github.com/go-playground/validator
+
+## 出墙工具
+- https://github.com/mellow-io/mellow
+- https://github.com/sun-shadow/Surf_the_Internet/blob/master/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87.md
+- https://zcdll.github.io/2018/01/27/proxy-on-windows-terminal/
+- https://stackoverflow.com/questions/26992886/set-proxy-through-windows-command-line-including-login-parameters
+> cmd
+  
+  Tunnel all your internet traffic through a socks proxy:
+  
+  netsh winhttp set proxy proxy-server="socks=127.0.0.1:10808" bypass-list="localhost"
+  View the current proxy settings:
+  
+  netsh winhttp show proxy
+  Clear all proxy settings:
+  
+  netsh winhttp reset proxy
+
+- https://github.com/shadowsocks/shadowsocks-windows/issues/1489
+- https://juejin.im/post/5e127308e51d4541360ac518
+下面这个在我本机可以用的
+> set http_proxy=socks5://127.0.0.1:10808
+  set https_proxy=socks5://127.0.0.1:10808
+  // 清理
+  set http_proxy=
+  set https_proxy=
+ 
+ - https://www.v2ray.com/awesome/tools.html
+  
+  
+
+
+## 工具
+
+## 架构
+- https://github.com/justinamiller/SoftwareArchitect
+- https://github.com/toutiaoio/awesome-architecture 架构师技术图谱，助你早日成为架构师
+
+## 值得深研项目
+- 
