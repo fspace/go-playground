@@ -6,4 +6,27 @@
 
 
 
-## books
+## GO books
+
+### Introductory Books
+- The Go Programming Language
+  Alan A. A. Donovan & Brian W. Kernignhan (Addison-Wesley, 2015)
+- Go in Action (1st Edition)
+  William Kennedy, Brian Ketelsen, Erik St. Martin (Manning, 2015)
+  
+- Introducing Go
+  Caleb Doxsey (O’Reilly, 2016r)
+  
+### Intermediate Books
+
+- Writing an Interpreter in Go
+  Thorsten Ball (Self-Published, 2018)
+  
+-  Writing a Compiler in Go
+   Thorsten Ball (Self-Published, 2018)
+
+### Advanced Books
+
+- Concurrency in Go: Tools and Techniques for Developers
+  Katherine Cox-Buday (O’Reilly, 2017)
+    
