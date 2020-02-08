@@ -6,6 +6,12 @@ import (
 	"os"
 	"playgo/webexamples/gophersumit/internal/handlers"
 	"playgo/webexamples/gophersumit/internal/multiplexer"
+	"playgo/webexamples/gophersumit/internal/part2/headers"
+	"playgo/webexamples/gophersumit/internal/part2/query"
+	"playgo/webexamples/gophersumit/internal/part2/request"
+	"playgo/webexamples/gophersumit/internal/part2/response"
+	"playgo/webexamples/gophersumit/internal/part3/cookies"
+	"playgo/webexamples/gophersumit/internal/part3/sessions"
 )
 
 func main() {
@@ -22,6 +28,16 @@ func realMain() (exitCode int) {
 	//handlers in Go using two ways
 	app.Command("st", "struct type as handler", cli.ActionCommand(structTypeAsHandler))
 	app.Command("fah", "function as handler", cli.ActionCommand(functionAsHandler))
+
+	app.Command("part2/request", "extract multiple details from incoming request ", cli.ActionCommand(request.Main))
+	app.Command("part2/response", "build the http response using ResponseWriter interface. ", cli.ActionCommand(response.Main))
+	app.Command("part2/header", "see headers coming from incoming http request. ", cli.ActionCommand(headers.Main))
+	app.Command("part2/query", " get query string values ", cli.ActionCommand(query.QueryStrings))
+
+	app.Command("part3/set-cookie", "  set cookies ", cli.ActionCommand(cookies.Main))
+	app.Command("part3/get-cookie", "  get cookies ", cli.ActionCommand(cookies.GetCookies))
+	app.Command("part3/session", "  get and set session data ", cli.ActionCommand(sessions.Main))
+	app.Command("part3/flash", "  work with flash messages ", cli.ActionCommand(sessions.FlashMessage))
 
 	// ---------------------------------------------------------------------------------------------
 	// With the app configured, execute it, passing in the os.Args array
