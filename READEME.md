@@ -16,6 +16,8 @@
 
 - https://github.com/campoy/justforfunc
 
+- [ Chinese translations for classic IT resources ](https://github.com/oldratlee/translations)
+
 ### 个人博客
 - [清晰架构（Clean Architecture）的Go微服务: 日志管理](https://segmentfault.com/a/1190000021479989)
 
@@ -88,11 +90,17 @@
   set https_proxy=
  
  - https://www.v2ray.com/awesome/tools.html
+ - ssr 批量导入技巧(选中tablehtml源码即可 不用担心里面的结构)：
+ >鼠标右键》》查看网页源代码》》ctrl+a》》ctrl+c》》剪切板批量导入ssr://链接..
+  .---分隔符---
+  请尽量采用chrome或Firefox
   
   
-
+## 机器性能
+- http://www.brendangregg.com/
 
 ## 工具
+- https://github.com/divan/depscheck 依赖分析
 
 ## 架构
 - https://github.com/justinamiller/SoftwareArchitect
