@@ -1,0 +1,28 @@
+{
+  "Users": {
+    "usr_5SH9ETnjprMir6xF": {
+      "ID": "usr_5SH9ETnjprMir6xF",
+      "Email": "yiqing_95@qq.com",
+      "HashedPassword": "$2a$10$bdY5GHqLL.wEBKV4V6OhlOXJtJYQQ4mz4r0TWnsk.zgB8/rkRcGgK",
+      "Username": "yiqing"
+    },
+    "usr_Tl5J3aCqPmueRsAy": {
+      "ID": "usr_Tl5J3aCqPmueRsAy",
+      "Email": "yiqing@qq.com",
+      "HashedPassword": "$2a$10$Sapu7C/gm8CHnh./iuwRKO61LF8KWx27e8WrCE98UFQx1ZoXlrZN6",
+      "Username": "yiqing2"
+    },
+    "usr_rg58NKZ9nx0jN4zW": {
+      "ID": "usr_rg58NKZ9nx0jN4zW",
+      "Email": "mal@mal.co.nz",
+      "HashedPassword": "$2a$10$/K9UhbmWhQkMWyZJHAzMeu38hgjlvUfPPu4dKGk8o27w4VdtMr4fO",
+      "Username": "mal"
+    },
+    "usr_u6wpeO57X8pa8KMT": {
+      "ID": "usr_u6wpeO57X8pa8KMT",
+      "Email": "yiqing2@qq.com",
+      "HashedPassword": "$2a$10$1XDgm/mcOVZwitlYPfquNeIwC8ENC9b2USwbmvJWTZ2qv0IkKQqU6",
+      "Username": "yiqing3"
+    }
+  }
+}

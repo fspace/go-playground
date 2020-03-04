@@ -17,6 +17,7 @@ require (
 	github.com/cheggaaa/pb/v3 v3.0.3 // indirect
 	github.com/chromedp/chromedp v0.5.2 // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
+	github.com/common-nighthawk/go-figure v0.0.0-20190529165535-67e0ed34491a // indirect
 	github.com/d4l3k/go-pry v0.0.0-20181122210047-3e3af674fe57 // indirect
 	github.com/davecgh/go-spew v1.1.1
 	github.com/didi/gendry v1.3.1 // indirect
@@ -33,6 +34,7 @@ require (
 	github.com/go-zoo/bone v1.3.0 // indirect
 	github.com/gogf/gf v1.8.0 // indirect
 	github.com/gorilla/mux v1.7.2
+	github.com/gorilla/sessions v1.2.0
 	github.com/grsmv/inflect v0.0.0-20140723132642-a28d3de3b3ad // indirect
 	github.com/hnakamur/jsonpreprocess v0.0.0-20171017030034-a4e954386171 // indirect
 	github.com/huandu/xstrings v1.2.0 // indirect
@@ -42,25 +44,30 @@ require (
 	github.com/jedib0t/go-pretty v4.2.1+incompatible
 	github.com/jinzhu/configor v1.1.1
 	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/julienschmidt/httprouter v1.2.0
+	github.com/joho/godotenv v1.3.0 // indirect
+	github.com/jroimartin/gocui v0.4.0 // indirect
+	github.com/julienschmidt/httprouter v1.3.0
 	github.com/kataras/go-events v0.0.2 // indirect
 	github.com/lalamove/konfig v0.7.2 // indirect
 	github.com/lib/pq v1.2.0
 	github.com/mattn/go-tty v0.0.0-20190424173100-523744f04859 // indirect
 	github.com/mediocregopher/radix/v3 v3.3.2 // indirect
 	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b // indirect
-	github.com/micro/go-micro v1.7.0 // indirect
+	github.com/micro/go-micro v1.7.0
 	github.com/microcosm-cc/bluemonday v1.0.2
 	github.com/mitchellh/cli v1.0.0
 	github.com/moul/http2curl v1.0.0 // indirect
 	github.com/mustafaturan/bus v0.1.3 // indirect
 	github.com/mustafaturan/monoton v0.4.0 // indirect
+	github.com/nsf/termbox-go v0.0.0-20191229070316-58d4fcbce2a7 // indirect
 	github.com/olekukonko/tablewriter v0.0.4 // indirect
 	github.com/orcaman/concurrent-map v0.0.0-20190826125027-8c72a8bb44f6 // indirect
 	github.com/parnurzeal/gorequest v0.2.15 // indirect
 	github.com/pkg/errors v0.8.1
+	github.com/rivo/tview v0.0.0-20200129065529-3a5c6317e432 // indirect
 	github.com/robfig/cron/v3 v3.0.0 // indirect
 	github.com/rs/zerolog v1.15.0 // indirect
+	github.com/russross/blackfriday v1.5.2
 	github.com/samonzeweb/godb v1.0.12 // indirect
 	github.com/saschagrunert/ccli v1.0.1 // indirect
 	github.com/sirupsen/logrus v1.4.2
@@ -76,6 +83,13 @@ require (
 	go.uber.org/dig v1.7.0 // indirect
 	go.uber.org/fx v1.9.0 // indirect
 	go.uber.org/zap v1.13.0 // indirect
+	golang.org/x/crypto v0.0.0-20200128174031-69ecbb4d6d5d
+	golang.org/x/mod v0.2.0 // indirect
+	golang.org/x/net v0.0.0-20200202094626-16171245cfb2 // indirect
+	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
+	golang.org/x/sys v0.0.0-20200202164722-d101bd2416d5 // indirect
+	golang.org/x/tools v0.0.0-20200203222849-174f5c63c9f5 // indirect
+	golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 // indirect
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/go-playground/validator.v9 v9.29.1 // indirect
 	upper.io/db.v3 v3.5.7+incompatible // indirect

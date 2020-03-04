@@ -6,3 +6,6 @@
 
 ## project
 - https://github.com/gastrid/mockable/blob/master/function_visitor.go#L118
+- https://github.com/z7zmey/php-parser.git
+- https://github.com/divan/depscheck
+- https://github.com/rogpeppe/godef

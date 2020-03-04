@@ -291,7 +291,13 @@ func CollectStruts() {
 	}
 
 	s := collectStructs(f)
+	structNames := []string{}
+	for _, st := range s {
+		structNames = append(structNames, st.name)
+	}
+
 	pretty.Print(s)
+	pretty.Print(structNames)
 
 }
 

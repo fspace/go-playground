@@ -4,6 +4,7 @@
 
 
 ## 资料参考
+- [想系统学习GO语言(Golang)，能推荐几本靠谱的书吗?](https://www.zhihu.com/question/30461290)
 - https://github.com/avelino/awesome-go 优秀go项目|库
 - [Go文件操作大全 ](https://colobu.com/2016/10/12/go-file-operations/)
 - [Go 夜读](https://github.com/developer-learning/night-reading-go)
@@ -17,6 +18,7 @@
 - https://github.com/campoy/justforfunc
 
 - [ Chinese translations for classic IT resources ](https://github.com/oldratlee/translations)
+- [命令行的艺术 ](https://github.com/jlevy/the-art-of-command-line) 命令行编程  或者linux学习可参考此项目
 
 ### 个人博客
 - [清晰架构（Clean Architecture）的Go微服务: 日志管理](https://segmentfault.com/a/1190000021479989)

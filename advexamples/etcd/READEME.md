@@ -1,0 +1,4 @@
+- [一致性算法（Paxos、Raft、ZAB）](https://www.bilibili.com/video/av21667358/?spm_id_from=333.788.videocard.19)
+- [etcd+golang实战速学](http://www.jtthink.com/course/90)
+- [2020 MIT 6.824 分布式系统](https://www.bilibili.com/video/av87684880?p=5)
+- [分布式一致性算法Raft作者讲解Paxos](https://www.bilibili.com/video/av36556594/?spm_id_from=333.788.videocard.2)

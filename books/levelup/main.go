@@ -9,6 +9,9 @@ import (
 	"playgo/books/levelup/internal/ch1"
 	"playgo/books/levelup/internal/ch2"
 	"playgo/books/levelup/internal/ch3"
+	"playgo/books/levelup/internal/ch4"
+	"playgo/books/levelup/internal/ch5"
+	"playgo/books/levelup/internal/ch6"
 )
 
 func main() {
@@ -87,6 +90,10 @@ func realMain() (exitCode int) {
 	}))
 	app.Command("ch3/ujs", "Unmarshaling: UnknownJSONStructure   ", cli.ActionCommand(ch3.UnknownJSONStructure))
 
+	app.Command("ch4/sw", " Simple static webserver  ", cli.ActionCommand(ch4.SimpleStaticWebserver))
+	app.Command("ch4/ss", " SimpleServer  ", cli.ActionCommand(ch4.SimpleServer))
+	app.Command("ch5/s", " SimpleServer  ", cli.ActionCommand(ch5.Main))
+	app.Command("ch6/s", " SimpleServer  ", cli.ActionCommand(ch6.Main))
 	// ---------------------------------------------------------------------------------------------
 	// With the app configured, execute it, passing in the os.Args array
 	app.Run(os.Args)
