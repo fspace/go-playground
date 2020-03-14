@@ -20,11 +20,14 @@
 - [ Chinese translations for classic IT resources ](https://github.com/oldratlee/translations)
 - [命令行的艺术 ](https://github.com/jlevy/the-art-of-command-line) 命令行编程  或者linux学习可参考此项目
 
+- [codewithgo](https://book.codewithgo.com/)
+
 ### 个人博客
 - [清晰架构（Clean Architecture）的Go微服务: 日志管理](https://segmentfault.com/a/1190000021479989)
 
 ## 项目结构
 - [go-project-blueprint](https://github.com/MartinHeinz/go-project-blueprint)
+- [go 标准项目布局](https://github.com/golang-standards/project-layout)
 
 ## 书籍
 - [ 浅谈 Go 语言实现原理](https://draveness.me/golang/)
@@ -36,6 +39,7 @@
 ## 内存相关
 - http://dmitrysoshnikov.com/compilers/writing-a-memory-allocator/
 - http://lessisbetter.site/2019/07/06/go-memory-allocation/
+- https://deepu.tech/memory-management-in-golang/
 
 ## 编译原理相关
 - https://github.com/fatih/hcl HCL Parser and Printer in Go  新版移动至： https://github.com/hashicorp/hcl
@@ -98,6 +102,11 @@
   请尽量采用chrome或Firefox
   
   
+## 分布式
+- [The Log（我所读过的最好的一篇分布式技术文章）](https://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html) 
+- [一些不错英文资料的中文翻译。](https://github.com/oldratlee/translations)
+- [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
+ 
 ## 机器性能
 - http://www.brendangregg.com/
 
@@ -107,6 +116,7 @@
 ## 架构
 - https://github.com/justinamiller/SoftwareArchitect
 - https://github.com/toutiaoio/awesome-architecture 架构师技术图谱，助你早日成为架构师
+- [Go (Golang) Clean Architecture based on Reading Uncle Bob's Clean Architecture ](https://github.com/bxcodec/go-clean-arch)
 
 ## 值得深研项目
 - 
