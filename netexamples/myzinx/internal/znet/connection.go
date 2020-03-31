@@ -33,6 +33,7 @@ func NewConnection(conn *net.TCPConn,
 		Conn:   conn,
 		ConnID: connID,
 		//handleAPI: callback_api,
+		Router:   router,
 		isClosed: false,
 		ExitChan: make(chan bool, 1),
 	}
@@ -54,7 +55,7 @@ func (c *Connection) StartReader() {
 			continue
 		}
 
-		req := &Request{
+		req := Request{
 			conn: c,
 			data: buf,
 		}
@@ -62,7 +63,7 @@ func (c *Connection) StartReader() {
 			c.Router.PreHandle(request)
 			c.Router.Handle(request)
 			c.Router.PostHandle(request)
-		}(req)
+		}(&req)
 
 		//// 调用当前连接所绑定的HandleAPI
 		//if err := c.handleAPI(c.Conn, buf, cnt); err != nil {
