@@ -13,6 +13,14 @@ type Server struct {
 	IPVersion string
 	IP        string
 	Port      int
+
+	// 给当前server添加router server注册的连接对应的处理业务
+	Router ziface.IRouter
+}
+
+func (s *Server) AddRouter(router ziface.IRouter) {
+	s.Router = router
+	fmt.Println("Add Router Succ!!!")
 }
 
 func (s *Server) Start() {
@@ -56,7 +64,8 @@ func start(s *Server) {
 			continue
 		}
 		// 将处理心连接的业务方法 和 Conn进行绑定 得到我们的连接模块
-		dealConn := NewConnection(conn, cid, CallbackToClient)
+		//dealConn := NewConnection(conn, cid, CallbackToClient)
+		dealConn := NewConnection(conn, cid, s.Router)
 		cid++
 		go dealConn.Start()
 		// 客户端已经连接 做一些业务 做一个最基本的最大512字节长度的回显业务
@@ -101,6 +110,7 @@ func NewServer(name string) ziface.IServer {
 		IPVersion: "tcp4",
 		IP:        "0.0.0.0",
 		Port:      8999,
+		Router:    nil,
 	}
 	return s
 }
