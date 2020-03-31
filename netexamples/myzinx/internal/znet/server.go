@@ -1,6 +1,7 @@
 package znet
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"net"
@@ -20,6 +21,17 @@ func (s *Server) Start() {
 		start(s)
 	}()
 }
+
+// 定义当前客户端连接所绑定的handle_api（目前写死）
+func CallbackToClient(conn *net.TCPConn, data []byte, cnt int) error {
+	fmt.Println("[Conn Handle] CallbackClient ...")
+	if _, err := conn.Write(data[:cnt]); err != nil {
+		fmt.Println("write back buf err :", err)
+		return errors.New("CallBackToClient error")
+	}
+	return nil
+}
+
 func start(s *Server) {
 	log.Println("Start me")
 	// 1. 获取一个TCP的地址
@@ -34,6 +46,8 @@ func start(s *Server) {
 	}
 	log.Println("start zinx server succ.", s.Name, "succ. Listening ...")
 
+	var cid uint32
+	cid = 0
 	// 3.阻塞等待客户端连接 ， 处理客户端连接业务(读写）
 	for {
 		conn, err := listenner.AcceptTCP()
@@ -41,23 +55,27 @@ func start(s *Server) {
 			log.Println("Accept err: ", err)
 			continue
 		}
+		// 将处理心连接的业务方法 和 Conn进行绑定 得到我们的连接模块
+		dealConn := NewConnection(conn, cid, CallbackToClient)
+		cid++
+		go dealConn.Start()
 		// 客户端已经连接 做一些业务 做一个最基本的最大512字节长度的回显业务
-		go func() {
-			for {
-				buf := make([]byte, 512)
-				cnt, err := conn.Read(buf)
-				if err != nil {
-					log.Println("recv buf err: ", err)
-					continue
-				}
-				log.Printf("recv client buf %s, cnt %d\n", buf, cnt)
-				// 回显功能
-				if _, err := conn.Write(buf[:cnt]); err != nil {
-					log.Println("Write back buf err :", err)
-					continue
-				}
-			}
-		}()
+		//go func() {
+		//	for {
+		//		buf := make([]byte, 512)
+		//		cnt, err := conn.Read(buf)
+		//		if err != nil {
+		//			log.Println("recv buf err: ", err)
+		//			continue
+		//		}
+		//		log.Printf("recv client buf %s, cnt %d\n", buf, cnt)
+		//		// 回显功能
+		//		if _, err := conn.Write(buf[:cnt]); err != nil {
+		//			log.Println("Write back buf err :", err)
+		//			continue
+		//		}
+		//	}
+		//}()
 
 	}
 }
