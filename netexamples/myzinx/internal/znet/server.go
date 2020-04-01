@@ -6,6 +6,7 @@ import (
 	"log"
 	"net"
 	"playgo/netexamples/myzinx/internal/ziface"
+	"playgo/netexamples/myzinx/utils"
 )
 
 type Server struct {
@@ -24,6 +25,16 @@ func (s *Server) AddRouter(router ziface.IRouter) {
 }
 
 func (s *Server) Start() {
+	fmt.Printf("[Zinx] Server Name : %s, Listenner at IP: %s, Port: %d is Starting \n ",
+		utils.GlobalObject.Name,
+		utils.GlobalObject.Host,
+		utils.GlobalObject.TcpPort)
+	fmt.Printf("[Zinx] Version %s, MaxConn: %d , MaxPacketSize: %d\n",
+		utils.GlobalObject.Version,
+		utils.GlobalObject.MaxConn,
+		utils.GlobalObject.MaxPackageSize,
+	)
+
 	log.Println("Start me")
 	go func() {
 		start(s)
@@ -106,10 +117,10 @@ func (s *Server) Serve() {
 func NewServer(name string) ziface.IServer {
 	// 构造器惯用法 还有类似的 NewXxxWithYYY
 	s := &Server{
-		Name:      name,
+		Name:      utils.GlobalObject.Name,
 		IPVersion: "tcp4",
-		IP:        "0.0.0.0",
-		Port:      8999,
+		IP:        utils.GlobalObject.Host,
+		Port:      utils.GlobalObject.TcpPort,
 		Router:    nil,
 	}
 	return s
