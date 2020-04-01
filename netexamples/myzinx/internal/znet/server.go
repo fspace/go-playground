@@ -39,6 +39,8 @@ func (s *Server) Start() {
 
 	log.Println("Start me")
 	go func() {
+		// 开启消息队列以及Worker工作池
+		s.MsgHandler.StartWorkerPool()
 		start(s)
 	}()
 }

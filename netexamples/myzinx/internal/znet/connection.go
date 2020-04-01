@@ -7,6 +7,7 @@ import (
 	"log"
 	"net"
 	"playgo/netexamples/myzinx/internal/ziface"
+	"playgo/netexamples/myzinx/utils"
 )
 
 type Connection struct {
@@ -18,8 +19,11 @@ type Connection struct {
 	// 当前连接所绑定的处理业务的方法API
 	// handleAPI ziface.HandleFunc
 
-	// 告知当前连接已经退出的/停止 channel
+	// 告知当前连接已经退出的/停止 channel (reader告知writer 退出  reader是处理的上游)
 	ExitChan chan bool
+
+	// 无缓冲的管道， 用于读,写Goroutine之间的消息通讯
+	msgChan chan []byte
 
 	// 该连接处理的方法router
 	// Router ziface.IRouter
@@ -41,6 +45,7 @@ func NewConnection(conn *net.TCPConn,
 		//handleAPI: callback_api,
 		// Router:   router,
 		isClosed: false,
+		msgChan:  make(chan []byte),
 		ExitChan: make(chan bool, 1),
 
 		MsgHandle: msgHandler,
@@ -49,8 +54,8 @@ func NewConnection(conn *net.TCPConn,
 }
 
 func (c *Connection) StartReader() {
-	log.Println("Reader Goroutine is running ...")
-	defer fmt.Println("connID= ", c.ConnID, "Reader is exit, remote addr is ", c.RemoteAddr().String())
+	log.Println("[Reader Goroutine is running ...]")
+	defer fmt.Println("[Reader is exit], connID= ", c.ConnID, " remote addr is ", c.RemoteAddr().String())
 	defer c.Stop()
 
 	for {
@@ -93,6 +98,12 @@ func (c *Connection) StartReader() {
 			//data: buf,
 			msg: msg,
 		}
+		if utils.GlobalObject.WorkerPoolSize > 0 {
+			c.MsgHandle.SendMsgToTaskQueue(&req)
+		} else {
+			go c.MsgHandle.DoMsgHandler(&req)
+		}
+
 		// 执行注册的路由方法
 		//go func(request ziface.IRequest) {
 		//	//c.Router.PreHandle(request)
@@ -100,7 +111,7 @@ func (c *Connection) StartReader() {
 		//	//c.Router.PostHandle(request)
 		//
 		//}(&req)
-		go c.MsgHandle.DoMsgHandler(&req)
+		//go c.MsgHandle.DoMsgHandler(&req)
 
 		//// 调用当前连接所绑定的HandleAPI
 		//if err := c.handleAPI(c.Conn, buf, cnt); err != nil {
@@ -111,11 +122,32 @@ func (c *Connection) StartReader() {
 	}
 }
 
+// 写消息的Goroutine 专门发送给客户端消息的模块
+func (c *Connection) StartWriter() {
+	fmt.Println("[Writer Goroutine is running]")
+	defer fmt.Println("[Conn Writer exit!]", c.RemoteAddr().String())
+	// 不断的阻塞 等待channel的消息 进行写给客户端
+	for {
+		select {
+		case data := <-c.msgChan:
+			// 有数据要写给客户端
+			if _, err := c.Conn.Write(data); err != nil {
+				fmt.Println("Send data error:", err)
+				return
+			}
+		case <-c.ExitChan:
+			// 代表Reader已经退出 此时Writer 也要退出
+			return
+		}
+	}
+}
+
 func (c *Connection) Start() {
 	log.Println("Connection Start()... ConnID=", c.ConnID)
 	// 启动从当前连接的读数据的业务
 	go c.StartReader()
-	// TODO 启动从当前连接写数据的业务
+	// 启动从当前连接写数据的业务
+	go c.StartWriter()
 }
 
 func (c *Connection) Stop() {
@@ -127,8 +159,12 @@ func (c *Connection) Stop() {
 	c.isClosed = true
 	// 关闭socket
 	c.Conn.Close()
+
+	// 告知Writer关闭
+	c.ExitChan <- true
 	// 回收资源
 	close(c.ExitChan)
+	close(c.msgChan)
 }
 
 func (c *Connection) GetTCPConnection() *net.TCPConn {
@@ -163,10 +199,12 @@ func (c *Connection) SendMsg(msgId uint32, data []byte) error {
 		return errors.New("Pack error msg")
 	}
 	// 讲数据发送给客户端
-	if _, err := c.Conn.Write(binMsg); err != nil {
-		fmt.Println("Write msg id ", msgId, " error ", err)
-		return errors.New("conn Write error")
-	}
+	//if _, err := c.Conn.Write(binMsg); err != nil {
+	//	fmt.Println("Write msg id ", msgId, " error ", err)
+	//	return errors.New("conn Write error")
+	//}
+	c.msgChan <- binMsg
+
 	return nil
 }
 
