@@ -21,6 +21,7 @@ func (dp *DataPack) GetHeadLen() uint32 {
 	return 8
 }
 
+// Pack dataLen|msgID|DATA
 func (dp *DataPack) Pack(msg ziface.IMessage) ([]byte, error) {
 	// 创建一个存放bytes字节的缓冲
 	dataBuff := bytes.NewBuffer([]byte{})
@@ -41,11 +42,17 @@ func (dp *DataPack) Pack(msg ziface.IMessage) ([]byte, error) {
 
 func (dp *DataPack) Unpack(binaryData []byte) (ziface.IMessage, error) {
 	// 拆包方法 先将Head信息读出来 之后根据Head信息里的Data长度 再进行一次读
+	// 创建读流
 	dataBuff := bytes.NewReader(binaryData)
 	// 只解压Head信息 得到dataLen和MsgID
 	msg := &Message{}
 
+	// 1.先读len
 	if err := binary.Read(dataBuff, binary.LittleEndian, &msg.DataLen); err != nil {
+		return nil, err
+	}
+	// 2. 再读ID
+	if err := binary.Read(dataBuff, binary.LittleEndian, &msg.Id); err != nil {
 		return nil, err
 	}
 

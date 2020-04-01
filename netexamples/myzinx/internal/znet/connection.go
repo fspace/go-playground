@@ -16,28 +16,34 @@ type Connection struct {
 	isClosed bool
 
 	// 当前连接所绑定的处理业务的方法API
-	handleAPI ziface.HandleFunc
+	// handleAPI ziface.HandleFunc
 
 	// 告知当前连接已经退出的/停止 channel
 	ExitChan chan bool
 
 	// 该连接处理的方法router
-	Router ziface.IRouter
+	// Router ziface.IRouter
+
+	// 消息的管理MsgId合对应的处理业务API 关系
+	MsgHandle ziface.IMsgHandle
 }
 
 // 初始化连接模块的方法
 func NewConnection(conn *net.TCPConn,
 	connID uint32,
 	//callback_api ziface.HandleFunc,
-	router ziface.IRouter,
+	//router ziface.IRouter,
+	msgHandler ziface.IMsgHandle,
 ) *Connection {
 	c := &Connection{
 		Conn:   conn,
 		ConnID: connID,
 		//handleAPI: callback_api,
-		Router:   router,
+		// Router:   router,
 		isClosed: false,
 		ExitChan: make(chan bool, 1),
+
+		MsgHandle: msgHandler,
 	}
 	return c
 }
@@ -88,11 +94,13 @@ func (c *Connection) StartReader() {
 			msg: msg,
 		}
 		// 执行注册的路由方法
-		go func(request ziface.IRequest) {
-			c.Router.PreHandle(request)
-			c.Router.Handle(request)
-			c.Router.PostHandle(request)
-		}(&req)
+		//go func(request ziface.IRequest) {
+		//	//c.Router.PreHandle(request)
+		//	//c.Router.Handle(request)
+		//	//c.Router.PostHandle(request)
+		//
+		//}(&req)
+		go c.MsgHandle.DoMsgHandler(&req)
 
 		//// 调用当前连接所绑定的HandleAPI
 		//if err := c.handleAPI(c.Conn, buf, cnt); err != nil {
@@ -141,12 +149,15 @@ func (c *Connection) RemoteAddr() net.Addr {
 
 // 提供一个SendMsg方法 将我们要发送给客户端的数据先进行封包 再发送
 func (c *Connection) SendMsg(msgId uint32, data []byte) error {
+	fmt.Println("Connection::SendMsg: ID=", msgId)
+
 	if c.isClosed {
 		return errors.New("Connection closed when send msg \n")
 	}
 	// 讲data进行封包 MsgDataLen MsgID MsgData
 	dp := NewDataPack()
 	binMsg, err := dp.Pack(NewMsgPackage(msgId, data))
+
 	if err != nil {
 		fmt.Println("Pack error messg id = ", msgId)
 		return errors.New("Pack error msg")
