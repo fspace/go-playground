@@ -19,6 +19,8 @@ type Server struct {
 	// Router ziface.IRouter
 	// 当前server的消息管理模块， 用来邦定MsgID 对应的业务处理逻辑
 	MsgHandler ziface.IMsgHandle
+	// 该server 的连接管理器
+	ConnMgr ziface.IConnManager
 }
 
 func (s *Server) AddRouter(msgID uint32, router ziface.IRouter) {
@@ -78,9 +80,16 @@ func start(s *Server) {
 			log.Println("Accept err: ", err)
 			continue
 		}
+		// 连接限制检查
+		if s.ConnMgr.Len() >= utils.GlobalObject.MaxConn {
+			// TODO 给客户端响应 连接过多的错误包
+			fmt.Println("====== > Too many Connection ,MaxConn = ", utils.GlobalObject.MaxConn)
+			conn.Close()
+			continue
+		}
 		// 将处理心连接的业务方法 和 Conn进行绑定 得到我们的连接模块
 		//dealConn := NewConnection(conn, cid, CallbackToClient)
-		dealConn := NewConnection(conn, cid, s.MsgHandler)
+		dealConn := NewConnection(s, conn, cid, s.MsgHandler)
 		cid++
 		go dealConn.Start()
 		// 客户端已经连接 做一些业务 做一个最基本的最大512字节长度的回显业务
@@ -104,9 +113,11 @@ func start(s *Server) {
 	}
 }
 
-func (*Server) Stop() {
+func (s *Server) Stop() {
+	fmt.Println("[Stop] Zinx server name :", s.Name)
 	// panic("implement me")
-	// TODO 将一些服务器的资源，状态或者已经开辟的连接信息 进行停止或者回收
+	//  将一些服务器的资源，状态或者已经开辟的连接信息 进行停止或者回收
+	s.ConnMgr.ClearConn()
 }
 
 func (s *Server) Serve() {
@@ -118,6 +129,9 @@ func (s *Server) Serve() {
 	select {}
 }
 
+func (s *Server) GetConnMgr() ziface.IConnManager {
+	return s.ConnMgr
+}
 func NewServer(name string) ziface.IServer {
 	// 构造器惯用法 还有类似的 NewXxxWithYYY
 	s := &Server{
@@ -127,6 +141,7 @@ func NewServer(name string) ziface.IServer {
 		Port:      utils.GlobalObject.TcpPort,
 		//Router:    nil,
 		MsgHandler: NewMsgHandle(),
+		ConnMgr:    NewConnManager(),
 	}
 	return s
 }

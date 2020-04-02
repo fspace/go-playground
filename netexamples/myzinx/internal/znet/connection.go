@@ -11,6 +11,9 @@ import (
 )
 
 type Connection struct {
+	// 当前连接归属的Server
+	TcpServer ziface.IServer
+
 	Conn   *net.TCPConn
 	ConnID uint32
 
@@ -33,15 +36,18 @@ type Connection struct {
 }
 
 // 初始化连接模块的方法
-func NewConnection(conn *net.TCPConn,
+func NewConnection(
+	server ziface.IServer,
+	conn *net.TCPConn,
 	connID uint32,
 	//callback_api ziface.HandleFunc,
 	//router ziface.IRouter,
 	msgHandler ziface.IMsgHandle,
 ) *Connection {
 	c := &Connection{
-		Conn:   conn,
-		ConnID: connID,
+		TcpServer: server,
+		Conn:      conn,
+		ConnID:    connID,
 		//handleAPI: callback_api,
 		// Router:   router,
 		isClosed: false,
@@ -50,6 +56,8 @@ func NewConnection(conn *net.TCPConn,
 
 		MsgHandle: msgHandler,
 	}
+	// 将连接加入连接管理器
+	c.TcpServer.GetConnMgr().Add(c)
 	return c
 }
 
@@ -162,6 +170,10 @@ func (c *Connection) Stop() {
 
 	// 告知Writer关闭
 	c.ExitChan <- true
+
+	// 将当前连接从连接管理器中移除
+	c.TcpServer.GetConnMgr().Remove(c)
+
 	// 回收资源
 	close(c.ExitChan)
 	close(c.msgChan)
