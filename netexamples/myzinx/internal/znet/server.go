@@ -21,7 +21,36 @@ type Server struct {
 	MsgHandler ziface.IMsgHandle
 	// 该server 的连接管理器
 	ConnMgr ziface.IConnManager
+	// ## 事件支持
+	OnConnStart func(conn ziface.IConnection)
+	OnConnStop  func(conn ziface.IConnection)
 }
+
+// -------------------------------------------------------------------------
+// ## 事件支持
+// SetOnConnStart 设置连接开始的回调方法
+func (s *Server) SetOnConnStart(hookFunc func(connection ziface.IConnection)) {
+	s.OnConnStart = hookFunc
+}
+
+func (s *Server) SetOnConnStop(hookFunc func(connection ziface.IConnection)) {
+	s.OnConnStop = hookFunc
+}
+
+func (s *Server) CallOnConnStart(conn ziface.IConnection) {
+	if s.OnConnStart != nil {
+		fmt.Println("----> Call OnConnStart()...")
+		s.OnConnStart(conn)
+	}
+}
+func (s *Server) CallOnConnStop(conn ziface.IConnection) {
+	if s.OnConnStop != nil {
+		fmt.Println("---> Call OnConnStop() ...")
+		s.OnConnStop(conn)
+	}
+}
+
+// -------------------------------------------------------------------------
 
 func (s *Server) AddRouter(msgID uint32, router ziface.IRouter) {
 	s.MsgHandler.AddRouter(msgID, router)
@@ -151,5 +180,10 @@ func (s *Server) WithPort(port int) *Server {
 	s.Port = port
 	return s
 }
+
+// ===================================================================
+// 事件的方法支持
+
+// ===================================================================
 
 var _ ziface.IServer = &Server{}

@@ -8,6 +8,7 @@ import (
 	"net"
 	"playgo/netexamples/myzinx/internal/ziface"
 	"playgo/netexamples/myzinx/utils"
+	"sync"
 )
 
 type Connection struct {
@@ -33,6 +34,36 @@ type Connection struct {
 
 	// 消息的管理MsgId合对应的处理业务API 关系
 	MsgHandle ziface.IMsgHandle
+
+	// 连接属性集合
+	property map[string]interface{}
+	// 保护连接属性的锁
+	propertyLock sync.RWMutex
+}
+
+func (c *Connection) SetProperty(key string, value interface{}) {
+	c.propertyLock.Lock()
+	defer c.propertyLock.Unlock()
+
+	c.property[key] = value
+}
+
+func (c *Connection) GetProperty(key string) (interface{}, error) {
+	c.propertyLock.RLock()
+	defer c.propertyLock.RUnlock()
+
+	if value, ok := c.property[key]; ok {
+		return value, nil
+	}
+	return nil, errors.New("no property found ")
+}
+
+func (c *Connection) RemoveProperty(key string) {
+	c.propertyLock.Lock()
+	defer c.propertyLock.Unlock()
+
+	// 删除属性
+	delete(c.property, key)
 }
 
 // 初始化连接模块的方法
@@ -55,6 +86,8 @@ func NewConnection(
 		ExitChan: make(chan bool, 1),
 
 		MsgHandle: msgHandler,
+
+		property: make(map[string]interface{}),
 	}
 	// 将连接加入连接管理器
 	c.TcpServer.GetConnMgr().Add(c)
@@ -156,6 +189,9 @@ func (c *Connection) Start() {
 	go c.StartReader()
 	// 启动从当前连接写数据的业务
 	go c.StartWriter()
+
+	// 执行钩子方法
+	c.TcpServer.CallOnConnStart(c)
 }
 
 func (c *Connection) Stop() {
@@ -165,6 +201,10 @@ func (c *Connection) Stop() {
 		return
 	}
 	c.isClosed = true
+
+	// 销毁连接之前执行的业务Hook
+	c.TcpServer.CallOnConnStop(c)
+
 	// 关闭socket
 	c.Conn.Close()
 

@@ -65,18 +65,35 @@ func DoConnBegin(conn ziface.IConnection) {
 	if err := conn.SendMsg(202, []byte("DoConnection BEGIN")); err != nil {
 		fmt.Println(err)
 	}
+	// 给当前连接设置一些属性
+	fmt.Println("Set conn properties: eg. Name , Home...")
+	conn.SetProperty("Name", "丹丹--冰冰")
+	conn.SetProperty("Home", "https://github.com/aceId")
+	conn.SetProperty("SomeKey", "some value")
 }
 
 // 连接断开之前需要执行的函数
 func DoConnStop(conn ziface.IConnection) {
 	fmt.Println("===> DoConnStop is Called...")
 	fmt.Println("conn ID = ", conn.GetConnID(), "is lost ...")
+
+	// 获取连接属性
+	if name, err := conn.GetProperty("Name"); err == nil {
+		fmt.Println("Name = ", name)
+	}
+	if home, err := conn.GetProperty("Home"); err == nil {
+		fmt.Println("Home = ", home)
+	}
+	if someKey, err := conn.GetProperty("SomeKey"); err == nil {
+		fmt.Println("SomeKey = ", someKey)
+	}
+
 }
 
 // ==============================================================================
 func Run() {
 	// 1. 创建server
-	s := znet.NewServer("[zinx V0.9]")
+	s := znet.NewServer("[zinx V0.10]")
 
 	// 注册连接相关的钩子
 	s.SetOnConnStart(DoConnBegin)
