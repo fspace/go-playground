@@ -16,6 +16,7 @@
 - [Building event-driven applications the easy way in Go](https://github.com/ThreeDotsLabs/watermill)
 - [Go Training Class Material ](https://github.com/ardanlabs/gotraining) 培训
 
+- [go语言核心编程技术](https://www.cnblogs.com/abozhang/default.html?page=2) 阿波张的个人博客位置  公众号：go语言核心编程技术
 - https://github.com/campoy/justforfunc
 
 - [ Chinese translations for classic IT resources ](https://github.com/oldratlee/translations)
@@ -32,7 +33,8 @@
 - [go 标准项目布局](https://github.com/golang-standards/project-layout)
 
 ## 书籍
-- [ 浅谈 Go 语言实现原理](https://draveness.me/golang/)
+
+- [ 浅谈 Go 语言实现原理](https://draveness.me/golang/) 想深入学习go语言的*必看书籍哦*
 - [Go语言101](https://gfw.go101.org/article/101.html) [github 地址](https://github.com/golang101/golang101)
 - [《Go语言标准库》The Golang Standard Library by Example ](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/)
 
